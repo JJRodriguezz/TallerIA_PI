@@ -23,7 +23,7 @@ python manage.py add_images_db
 
 Se estaría consultando la API de openAI de generación de imágenes para crear una imagen nueva para cada archivo de la base de datos. En este caso, por cuestión de tiempo, se omitirá este paso. Las imágenes para cada película se pueden descargar del siguiente link:
 
-[images](https://drive.google.com/file/d/1-j6Q-AwrxO9q-BhPRHCp_MS2V6OYIhod/view?usp=sharing)
+[images](https://eafit-my.sharepoint.com/:f:/g/personal/jdmartinev_eafit_edu_co/El6GJ5EpcR5PiKJJkoSotHsBrqrlsGEcfB2pUerg9QOPpA?e=pztE0V)
 
 Esta carpeta se debe descomprimir y las imágenes se deben copiar en el path ``media/movie/images`` del proyecto ``DjangoProjectBase``
 
