@@ -1,12 +1,14 @@
-Como mas adelante utilizaremos HuggingFace, crea una cuenta en dicha pagina para posteriormente
-generar el token (https://huggingface.co/welcome):
+## Creación de cuenta y access token en huggingface
+
+Una alternativa para los modelos de IA generativa es HuggingFace, que es una plataforma líder que actúa como un hub para compartir, entrenar y desplegar modelos de inteligencia artificial, especialmente en procesamiento de lenguaje natural y otras tareas de IA, facilitando el acceso a herramientas y modelos preentrenados.
+
+Crea una cuenta en dicha pagina para posteriormente generar el token (https://huggingface.co/welcome):
 ![image](https://github.com/user-attachments/assets/39e90049-eed2-4499-9924-4d9082c7a623)
 
-
-
-Una vez creada, instala el paquete y accede al apartado de tokens.
-``pip install huggingface_hub`` 
-
+Una vez creada, instala el paquete y accede al apartado de tokens (si no lo incluiste en el archivo ``requirements.txt``).
+```bash
+pip install huggingface_hub`` 
+```
 ![image](https://github.com/user-attachments/assets/e1a233bb-88d1-40fc-a08e-ce3d9023d4ad)
 
 
