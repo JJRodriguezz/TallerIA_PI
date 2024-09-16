@@ -141,3 +141,5 @@ Finalmente, para comprobar que el sistema de recomendación funciona dentro de l
 Cuando lo ejecute deberá ver en la consola algo de esta forma:
 
 ![Fork 1](imgs/sr4a.png)
+
+__Nota:__ El archivo [movie_descriptions_gemini.py](movie_descriptions_gemini.py) muestra como generar embeddings y calcular similitudes utilizando la api de gemini. Este paso es opcional pero puede ser útil para el desarrollo de sus proyectos.
