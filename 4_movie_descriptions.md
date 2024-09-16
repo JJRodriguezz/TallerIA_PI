@@ -64,3 +64,5 @@ Puede ejecutar el servidor y verá algo de la siguiente forma:
 Además puede ir a la página de administrador 127.0.0.1:8000/admin/ y cuando ingrese con las credenciales podrá observar que las películas quedaron correctamente almacenadas en la base de datos. Además, puede ingresar a alguna de ellas y ver la descripción
 
 ![Fork 1](imgs/md8a.png)
+
+__Nota:__ El archivo [movie_descriptions_gemini.py](movie_descriptions_gemini.py) muestra como generar descripciones de las películas utilizando la API de gemini. Este paso es opcional pero puede ser una alternativa libre y sin costo para utilizar en los proyectos.
