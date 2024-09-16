@@ -5,6 +5,7 @@ Dado que este workshop es la continuación de los dos anteriores, se asumirá qu
 Adicional a estas librerías, vamos a instalar lo siguiente:
 
 - ``openai``, ``google-generativeai``, : Librerías para acceder a modelos de inteligencia artificial
+- ``huggingface_hub``: Librería alternativa para consumir APIs de modelos de IA open source
 -  ``python-dotenv``: Manejo de api_keys de forma segura
 -  ``numpy``: Operaciones matemáticas y de álgebra lineal
 -  ``requests``: Consultas a algunas API de openAI
