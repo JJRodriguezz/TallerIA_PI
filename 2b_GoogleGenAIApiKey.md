@@ -1,4 +1,6 @@
-## Creación de la API key
+## Creación de la API key de Gemini
+
+**Nota**: La creación de la API key de gemini es opcional, sin embargo puede ser bastante útil para el desarrollo de sus proyectos.
 
 Para crear la API key en openAI, debe ingresar con su cuenta de google a la página de [GoogleAI](https://ai.google.dev/gemini-api/docs/api-key?hl=es-419) e ingresa a ``Obtén una clave de API`` 
 
