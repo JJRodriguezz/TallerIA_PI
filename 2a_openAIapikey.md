@@ -40,12 +40,12 @@ Copie la API key y haga clic en ``Done``. Tenga en cuenta que después de cerrar
   </a>
   </div>
 
-Almacene su API key en un documento ``.env``, por ejemplo ``openAI.env``. Esto lo puede hacer en un editor de texto como Sublime o VScode 
+Almacene su API key en un documento ``.env``, por ejemplo ``api_keys.env``. Esto lo puede hacer en un editor de texto como Sublime o VScode 
 
 La estructura del archivo .env debe ser la siguiente:
 
 ````shell
-openAI_api_key = skXXXXXXXXXXX
+openai_api_key = "skXXXXXXXXXXX"
 ````
 
    <div align="center">
