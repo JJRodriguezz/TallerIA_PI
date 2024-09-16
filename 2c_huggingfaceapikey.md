@@ -7,7 +7,7 @@ Crea una cuenta en dicha pagina para posteriormente generar el token (https://hu
 
 Una vez creada, instala el paquete y accede al apartado de tokens (si no lo incluiste en el archivo ``requirements.txt``).
 ```bash
-pip install huggingface_hub`` 
+pip install huggingface_hub
 ```
 ![image](https://github.com/user-attachments/assets/e1a233bb-88d1-40fc-a08e-ce3d9023d4ad)
 
