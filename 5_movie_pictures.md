@@ -39,3 +39,5 @@ Cuando ejecute el servidor podrá notar que la imagen de cada película correspo
 
 ![Fork 1](imgs/mp2a.png)
 
+__Nota:__ El archivo [movie_pictures_hf.py](movie_pictures_hf.py) muestra como generar imágenes de las películas utilizando la API de un modelo de generación de imágenes llamado Stable Diffusion alojado en HuggingFace. Este paso es opcional pero puede ser una alternativa libre y sin costo para utilizar en los proyectos.
+
