@@ -50,7 +50,7 @@ openai_api_key = "skXXXXXXXXXXX"
 
    <div align="center">
   <a>
-    <img src="imgs/key6.png">
+    <img src="imgs/key6b.png">
   </a>
   </div>
   
