@@ -1,4 +1,4 @@
-# 🎬 Taller: Enriquecimiento de Descripciones de Películas con la API de OpenAI
+# 🎬 Enriquecimiento de Descripciones de Películas con la API de OpenAI
 
 ## ✅ Objetivo
 Aprenderás a utilizar la API de OpenAI en un proyecto Django para generar descripciones detalladas de películas almacenadas en la base de datos.
