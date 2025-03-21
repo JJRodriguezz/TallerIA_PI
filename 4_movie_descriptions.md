@@ -5,38 +5,59 @@ Aprenderás a utilizar la API de OpenAI en un proyecto Django para enriquecer la
 
 ---
 
-## 📌 1. Configurar la conexión con la API de OpenAI (OPCIONAL - SOLO CONSULTA)
-Esta sección es para que entiendas cómo funciona la conexión, **NO es necesario que la ejecutes**.
+## 📌 1. Conexión con la API de OpenAI (OPCIONAL - SOLO CONSULTA)
+Esta sección es para que comprendas cómo se configura y conecta el proyecto a la API de OpenAI.
 
-### 🔑 Pasos:
-- Crear un archivo `.env` con la API Key:
+### 🔑 ¿Qué necesitas?
+1. Crear un archivo `.env` donde almacenes tu API Key de forma segura:
 ```
 openai_apikey=sk-xxxxxxxxxxxxxxxxxxxx
 ```
-- Código de conexión:
+2. Cargar esa clave en tu código usando la librería `dotenv`.
+
+### ✅ Código de conexión explicado:
 ```python
 from openai import OpenAI
 import os
 from dotenv import load_dotenv
 
+# Carga las variables de entorno desde el archivo .env
 load_dotenv('../openAI.env')
+
+# Inicializa el cliente de OpenAI con la API Key
 client = OpenAI(api_key=os.environ.get('openai_apikey'))
 ```
-
-✅ Esto permite conectarse de forma segura a la API.
+- `load_dotenv()` carga las variables del archivo `.env`
+- `OpenAI()` crea el cliente para hacer las solicitudes a la API
 
 ---
 
-## 📌 2. Preparar el Prompt y consultar la API (OPCIONAL - SOLO CONSULTA)
-Ejemplo de la instrucción (prompt) enviada a la API:
+## 📌 2. Función auxiliar para obtener la respuesta de la API (OPCIONAL - SOLO CONSULTA)
+Creamos una función `get_completion()` que se encarga de:
+✅ Recibir el `prompt` como entrada  
+✅ Armar la estructura de la conversación requerida por la API  
+✅ Hacer la consulta y devolver solo el texto generado
+
 ```python
-instruction = (
-    "Vas a actuar como un aficionado del cine que sabe describir de forma clara, "
-    "concisa y precisa cualquier película en menos de 200 palabras. La descripción "
-    "debe incluir el género de la película y cualquier información adicional que sirva "
-    "para crear un sistema de recomendación."
-)
+def get_completion(prompt, model="gpt-3.5-turbo"):
+    # Define el mensaje con el rol 'user' y el contenido que enviamos
+    messages = [{"role": "user", "content": prompt}]
+    
+    # Llama a la API con el modelo y los mensajes
+    response = client.chat.completions.create(
+        model=model,
+        messages=messages,
+        temperature=0  # Controla la creatividad (0 = más preciso)
+    )
+    
+    # Retorna solo el contenido de la respuesta generada
+    return response.choices[0].message.content.strip()
 ```
+
+### 🔎 ¿Por qué usamos una función?
+- Centraliza la llamada a la API
+- Permite cambiar el modelo o parámetros fácilmente
+- Facilita el reuso en un ciclo `for` sobre las películas
 
 ---
 
@@ -52,8 +73,6 @@ for movie in movies:
     movie.save()
 ```
 
-### 📥 El código está en: [update_descriptions.py](update_descriptions.py)
-
 ### 📥 Este proceso debe realizarse como un **comando de Django dentro de la app `movie`**, ubicado en:
 ```
 movie/management/commands/update_descriptions.py
@@ -64,6 +83,7 @@ python manage.py update_descriptions
 ```
 
 ✅ Sin embargo, este comando **ya fue ejecutado por el equipo docente** y se entrega solo para consulta.
+
 
 ---
 
