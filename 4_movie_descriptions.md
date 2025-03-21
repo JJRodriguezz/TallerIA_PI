@@ -91,7 +91,7 @@ python manage.py update_descriptions
 
 ## 🚨 4. ¿Qué hicimos nosotros por ti?
 ✅ Ya ejecutamos el proceso completo con la API utilizando el comando [update_and_export_movies.py](update_and_export_movies.py).  
-✅ Como resultado, generamos el archivo **`updated_movie_descriptions.csv`** con todas las descripciones actualizadas.
+✅ Como resultado, generamos el archivo [updated_movie_descriptions.csv](updated_movie_descriptions.csv) con todas las descripciones actualizadas.
 
 
 ---
@@ -153,7 +153,7 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS(f"Finished updating {updated_count} movies from CSV."))
 
 ```
-Debes completar los espacios en blanco.
+Debes completar los espacios en blanco y ubicar el archivo [updated_movie_descriptions.csv](updated_movie_descriptions.csv) en la raíz del proyecto django.
 
 ### ✅ Ejecuta el comando:
 ```bash
