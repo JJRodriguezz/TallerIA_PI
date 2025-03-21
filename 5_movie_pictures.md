@@ -132,7 +132,7 @@ screenshot_generated_image.png
 ### ✅ ¿Qué se hizo?
 El proceso completo de generación de imágenes se ejecutó una sola vez y se entrega la carpeta con todas las imágenes generadas.
 
-👉 Las imágenes están en la carpeta:
+👉 Las imágenes se deben ubicar en la carpeta:
 ```
 media/movie/images/
 ```
