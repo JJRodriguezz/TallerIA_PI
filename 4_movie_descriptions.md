@@ -1,68 +1,117 @@
-## Descripciones de películas
+# 🎬 Taller: Enriquecimiento de Descripciones de Películas con la API de OpenAI
 
-En esta etapa del proyecto se utilizará la API de OpenAI para generar descripciones de algunas películas que se agregarán a la base de datos.
-Para esto, el archivo ``movie_titles.json`` tiene una lista de películas a las que se le agregará información.
+## ✅ Objetivo
+Aprenderás a utilizar la API de OpenAI en un proyecto Django para generar descripciones detalladas de películas almacenadas en la base de datos.
 
-El archivo [movie_descriptions.py](movie_descriptions.py) muestra los pasos para utilizar la API de OpenAI para obtener la descripción de las películas que se encuentran en la lista.
-En este archivo se pueden ver dos funcionalidades principales:
+---
 
-1. Definición de una función auxiliar (__get_completion__) para comunicarse con la API
-2. Creación de un __prompt__ que nos ayuda a pedir de forma correcta la descripción de las películas
+## 📌 🔥 ACTIVIDAD OBLIGATORIA - Actualizar la base de datos desde un CSV generado
 
-Ejecute el script, para esto debe dirigirse en la consola a la ubicación del archivo y escribir:
+Para **ahorrar costos de tokens** y garantizar que todos trabajen con los mismos datos, **ya hemos ejecutado la API** y generado un archivo `updated_movie_descriptions.csv`.
 
-````bash
-python movie_descriptions.py
-````
+### ✅ ¿Qué debes hacer?
+1. **Crear el comando** `update_movies_from_csv` en la aplicación `movie`:
+```
+movie/management/commands/update_movies_from_csv.py
+```
+2. **Ubicar el archivo `updated_movie_descriptions.csv` en la misma carpeta o ajustar la ruta**.
 
-Cuando ejecute el script, deberá ver en la consola algo de la siguiente forma:
+3. **Ejecutar el comando**:
+```bash
+python manage.py update_movies_from_csv
+```
 
-![Fork 1](imgs/md1.png)
+Este comando:
+✅ Lee el CSV  
+✅ Busca cada película por su título en la base de datos  
+✅ Actualiza el campo `description`
 
-Puede ver que se imprime el nombre de la película, el prompt completo y la descripción obtenida.
+👉 Código completo en: [update_movies_from_csv.py](update_movies_from_csv.py)
 
-Al ejecutar todo el script (incluyendo las lineas comentadas) se genera el archivo ``movie_descriptions.json``
-que se va a utilizar para alimentar la base de datos de películas. En este caso, por tiempo, no se va a ejecutar el script completo y el archivo resultante se puede consultar en [movie_descriptions.json](movie_descriptions.json).
+### ✅ Resultado esperado:
+Tendrás en tu base de datos las descripciones enriquecidas listas para usar.
 
-Ahora se utilizará la información del archivo [movie_descriptions.json](movie_descriptions.json) para agregar items a la base de datos. Para esto nos vamos a dirigir a la carpeta ``DjangoProjectBase``. Asumiendo que la consola está en el directorio raíz del proyecto ``Taller3-PI1``, ejecute lo siguiente:
+---
 
-````shell
-cd DjangoProjectBase
-````
-Si ejecuta el servidor se dará cuenta que este es el proyecto que se creó en el workshop 2 con algunas modificaciones a la lista de películas.
+## 📂 ¿Qué contiene el CSV entregado?
+El archivo `updated_movie_descriptions.csv` incluye:
 
-````shell
-python manage.py runserver
-````
-![Fork 1](imgs/md2a.png)
+| Title           | Updated Description                 |
+|-----------------|-------------------------------------|
+| Movie Title 1   | Descripción generada por OpenAI ... |
+| Movie Title 2   | Descripción generada por OpenAI ... |
 
-__Nota:__ Antes de continuar es necesario crear un superusuario para acceder al administrador de Django.
+---
 
-````shell
-python manage.py createsuperuser
-````
+## 🚨 ACTIVIDAD OPCIONAL - Generar el CSV usando la API de OpenAI (NO obligatorio)
+⚠️ Esta parte es solo **para aprendizaje** y **no debe ser ejecutada** por todos por temas de costos.
 
-Ahora dentro de la carpeta de la app movie debe crear una carpeta management y dentro de esta una carpeta commands. Después, debe crear el archivo add_descriptions_db.py.
+El comando `update_and_export_movies.py`:
+- Recorre todas las películas
+- Llama a la API de OpenAI
+- Guarda el resultado en `updated_movie_descriptions.csv`
 
-![Fork 1](imgs/md3.png)
+Ejecutar SOLO si el profesor lo autoriza:
+```bash
+python manage.py update_and_export_movies
+```
 
-Este archivo se utilizará para pasar la información del archivo ``movie_descriptions.json`` a la base de datos de películas de la aplicación de Django. El contenido de este archivo se encuentra en [add_descriptions_db.py](aux_files/add_descriptions_db.py)
+👉 Código completo en: [update_and_export_movies.py](update_and_export_movies.py)
 
-Una vez haya terminado estos pasos y copiado el contenido del archivo [add_descriptions_db.py](aux_files/add_descriptions_db.py) en ``movie/management/commands/add_descriptions.py``, en la consola ejecute el siguiente comando:
+---
 
-````shell
-python manage.py add_descriptions_db
-````
-Cuando termine de ejecutarse, debe ver un mensaje como el siguiente:
+## 📌 Conexión a la API y construcción del prompt (solo si quieres revisar cómo funciona)
+La API se conecta usando:
+```python
+from openai import OpenAI
+import os
+from dotenv import load_dotenv
 
-![Fork 1](imgs/md4a.png)
+load_dotenv('../openAI.env')
+client = OpenAI(api_key=os.environ.get('openai_apikey'))
+```
 
-Puede ejecutar el servidor y verá algo de la siguiente forma:
+Y la instrucción que guía al modelo es:
+```python
+instruction = (
+    "Vas a actuar como un aficionado del cine que sabe describir de forma clara, "
+    "concisa y precisa cualquier película en menos de 200 palabras. La descripción "
+    "debe incluir el género de la película y cualquier información adicional que sirva "
+    "para crear un sistema de recomendación."
+)
+```
 
-![Fork 1](imgs/md7a.png)
+---
 
-Además puede ir a la página de administrador 127.0.0.1:8000/admin/ y cuando ingrese con las credenciales podrá observar que las películas quedaron correctamente almacenadas en la base de datos. Además, puede ingresar a alguna de ellas y ver la descripción
+## 📌 Recomendaciones Finales
+✅ Asegúrate de tener el archivo CSV disponible  
+✅ Ejecuta el comando `update_movies_from_csv` para cargar las descripciones  
+✅ **NO es necesario llamar la API directamente**
 
-![Fork 1](imgs/md8a.png)
+---
 
-__Nota:__ El archivo [movie_descriptions_gemini.py](movie_descriptions_gemini.py) muestra como generar descripciones de las películas utilizando la API de gemini. Este paso es opcional pero puede ser una alternativa libre y sin costo para utilizar en los proyectos.
+## ✅ Archivos que se entregan
+✔️ `updated_movie_descriptions.csv` (ya generado)  
+✔️ `update_movies_from_csv.py` (para ejecutar)  
+✔️ `update_and_export_movies.py` (solo referencia - opcional)
+
+---
+
+## 📌 Ejemplo de ejecución esperada (obligatoria):
+```bash
+python manage.py update_movies_from_csv
+```
+Salida:
+```
+Found 50 movies in CSV
+Processing: The Matrix
+Updated: The Matrix
+Processing: Interstellar
+Updated: Interstellar
+...
+Finished updating 50 movies from CSV.
+```
+
+✅ Al finalizar tendrás la base de datos con las descripciones enriquecidas.
+
+---
