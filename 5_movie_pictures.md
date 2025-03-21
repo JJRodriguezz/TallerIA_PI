@@ -128,5 +128,49 @@ screenshot_generated_image.png
 
 ---
 
-## 📌 5. Nota:
-Una vez validado el funcionamiento, elimina la línea `break` para procesar todas las películas y generar sus imágenes.
+## 📌 5. Actividad Obligatoria - Cargar imágenes desde la carpeta entregada
+### ✅ ¿Qué se hizo?
+El proceso completo de generación de imágenes se ejecutó una sola vez y se entrega la carpeta con todas las imágenes generadas.
+
+👉 Las imágenes están en la carpeta:
+```
+media/movie/images/
+```
+con nombres como:
+```
+m_NOMBRE_PELICULA.png
+```
+
+---
+
+## 📌 6. ¿Qué debes hacer?
+✅ Crear un nuevo comando llamado:
+```
+movie/management/commands/update_images_from_folder.py
+```
+
+Este comando:
+- Recorre las películas en la base de datos
+- Asigna la imagen correspondiente de la carpeta `media/movie/images/`
+- Actualiza la base de datos con la ruta de la imagen
+
+### 📥 Ejecuta:
+```bash
+python manage.py update_images_from_folder
+```
+
+---
+
+## 📌 7. Resultado esperado
+✅ Al terminar, la base de datos tendrá asignada la imagen correcta para cada película.
+
+✅ Al visualizar el sitio, verás cada película con su respectiva imagen generada por la API.
+
+---
+
+## 📌 8. Nota final
+No es necesario generar nuevamente las imágenes ni quitar el `break`.  
+**Solo debes cargar las imágenes entregadas y actualizar la base de datos.**
+
+---
+
