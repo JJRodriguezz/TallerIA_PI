@@ -68,9 +68,6 @@ El archivo `.gitignore` evita que archivos sensibles (como tus llaves de API) se
    ```bash
    echo. > .gitignore
    ```
-   <div align="center">
-     <img src="imgs/key7_5.PNG" alt="Crear gitignore">
-   </div>
 
 2. Abre `.gitignore` y agrega lo siguiente al final:
 ```

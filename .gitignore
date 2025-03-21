@@ -1,4 +1,5 @@
 /api_keys.env
+/openAI.env
 /DjangoProjectBase2/*
 /TutorialGoogle/*
 /movie_pictures/*
