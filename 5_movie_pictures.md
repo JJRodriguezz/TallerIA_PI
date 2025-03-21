@@ -11,12 +11,19 @@ Generar imágenes personalizadas por cada película usando la API de OpenAI y ac
 ✅ Descargar y almacenar la imagen en el proyecto  
 ✅ Actualizar la base de datos con la nueva imagen generada
 
-⚠️ Por ahora, el comando está configurado para generar y actualizar **solo la primera película** como demostración. Luego deberás quitar el `break`.
+⚠️ Por ahora, el comando está configurado para generar y actualizar **solo la primera película**.
 
+✅ Esto es intencional para **ahorrar recursos y evitar costos de API**.
+
+✅ **Las imágenes de todas las películas ya fueron generadas** y se entregan en una carpeta lista para usar.
+
+🚫 **No debes quitar el `break`.**
+
+El código lo puedes encontrar en el archivo [updates_images.py](update_images.py)
 ---
 
 ## 📌 2. Descripción del comando `generate_images`
-El comando se encuentra en:
+El comando se debe ubicar en:
 ```
 movie/management/commands/generate_images.py
 ```
