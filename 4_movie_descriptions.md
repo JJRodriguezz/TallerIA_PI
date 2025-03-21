@@ -84,8 +84,8 @@ python manage.py update_descriptions
 
 ✅ Sin embargo, este comando **ya fue ejecutado por el equipo docente** y se entrega solo para consulta.
 
-Para consulta, el código lo pueden encontrar en el archivo [update_descriptions.py](update_descriptions.py)
 ---
+Para consulta, el código lo pueden encontrar en el archivo [update_descriptions.py](update_descriptions.py)
 
 ## 🚨 4. ¿Qué hicimos nosotros por ti?
 ✅ Ya ejecutamos el proceso completo con la API.  
