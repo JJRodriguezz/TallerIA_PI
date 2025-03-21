@@ -52,7 +52,18 @@ for movie in movies:
     movie.save()
 ```
 
-### 📥 El código está en: `update_descriptions.py`
+### 📥 El código está en: [update_descriptions.py](update_descriptions.py)
+
+### 📥 Este proceso debe realizarse como un **comando de Django dentro de la app `movie`**, ubicado en:
+```
+movie/management/commands/update_descriptions.py
+```
+Y ejecutarlo así (solo si fuera necesario):
+```bash
+python manage.py update_descriptions
+```
+
+✅ Sin embargo, este comando **ya fue ejecutado por el equipo docente** y se entrega solo para consulta.
 
 ---
 
