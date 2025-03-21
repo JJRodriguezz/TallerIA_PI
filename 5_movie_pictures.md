@@ -1,43 +1,111 @@
-## Ilustraciones de películas
+# 🎨 Generación de Imágenes con la API de OpenAI para Películas
 
-Ahora se utilizará la API de generación de imágenes de openAI para crear ilustraciones de las películas y modificar la imagen por defecto que se tiene en la base de datos.
-Primero, se utilizará un script para entender el funcionamiento de la API y después se verá cómo se podría utilizar para modificar las imágenes de la base de datos.
+## ✅ Objetivo
+En esta etapa aprenderás a usar la API de OpenAI para generar ilustraciones de las películas y actualizar las imágenes almacenadas en la base de datos.
 
-En la consola vuelva al directorio raíz ``Taller3-PI1``
+---
 
-````shell
-cd ..
-````
+## 📌 1. Conexión con la API de OpenAI y generación de imágenes (OPCIONAL - SOLO CONSULTA)
+Te explicamos cómo funciona la conexión y la llamada a la API de generación de imágenes, pero **no es obligatorio ejecutarlo** por costos y tiempo.
 
-El script [movie_pictures.py](movie_pictures.py) muestra cómo conectarse a la API de generación de imágenes. En este caso, vamos a utilizar el título de la película como __prompt__, sin embargo, usted puede usar diferentes prompts para generar mejores ilustraciones, o utilizar la descripción de las películas.
+### 🔑 Configuración inicial
+- Asegúrate de tener en tu `.env` la API Key:
+```
+openAI_api_key=sk-xxxxxxxxxxxxxxxxxxxx
+```
 
-Cuando ejecute este script, debe ver en la consola el nombre de la película, la descripción y la ilustración creada por la API
+### ✅ Código base de conexión:
+```python
+from openai import OpenAI
+import os
+from dotenv import load_dotenv
 
-![Fork 1](imgs/mp1a.png)
+load_dotenv('../openAI.env')
+client = OpenAI(api_key=os.environ.get('openAI_api_key'))
+```
 
-Se podría crear un script para crear y modificar las imágenes de la base de datos en la carpeta ``movie/management/commands``. Por ejemplo, si se ubica el archivo [add_images_db.py](aux_files/add_images_db.py) en la carpeta mencionada y se ejecuta el comando:
+---
 
-````shell
-python manage.py add_images_db
-````
+## 📌 2. Código para generar imágenes desde los títulos de las películas (OPCIONAL - NO EJECUTAR)
+El siguiente código permite recorrer las películas y generar una imagen usando la API `dall-e-2`.
 
-Se estaría consultando la API de openAI de generación de imágenes para crear una imagen nueva para cada archivo de la base de datos. En este caso, por cuestión de tiempo, se omitirá este paso. Las imágenes para cada película se pueden descargar del siguiente link:
+```python
+from movie.models import Movie
+import requests
+from PIL import Image
+from io import BytesIO
 
-[images](https://eafit-my.sharepoint.com/:f:/g/personal/jdmartinev_eafit_edu_co/El6GJ5EpcR5PiKJJkoSotHsBrqrlsGEcfB2pUerg9QOPpA?e=NVXca3)
+def fetch_image(url):
+    response = requests.get(url)
+    response.raise_for_status()
+    return Image.open(BytesIO(response.content))
 
-Esta carpeta se debe descomprimir y las imágenes se deben copiar en el path ``media/movie/images`` del proyecto ``DjangoProjectBase``
+movies = Movie.objects.all()
 
-Ahora, se debe crear el archivo ``modify_image_paths_db.py`` en la carpeta ``movie/management/commands``. Con este archivo se modificará la imagen de cada película en la base de datos para que sea la ilustración generada por la API de generación de imágenes. Este archivo lo puede encontrar acá: [modify_image_paths_db.py](aux_files/modify_image_paths_db.py).
+for movie in movies:
+    prompt = f"Portada de la película {movie.title}"
+    response = client.images.generate(
+        model="dall-e-2",
+        prompt=prompt,
+        size="256x256",
+        quality="standard",
+        n=1,
+    )
+    image_url = response.data[0].url
+    img = fetch_image(image_url)
+    img.save(f"media/movie/images/{movie.title}.png")
+```
 
-Una vez haya copiado el archivo en la ubicación mencionada, asegúrese de que la consola esté ubicada en ``DjangoProjectBase`` y ejecute el comando:
+⚠️ *Este proceso es costoso y se deja solo como referencia*.
 
-````shell
+---
+
+## 🚨 3. ¿Qué se hizo por ustedes?
+✅ Se ejecutó el proceso de generación de imágenes.  
+✅ Se empaquetaron las imágenes en un archivo `.zip` que deben descargar desde el siguiente enlace:
+
+👉 [Descargar imágenes](https://eafit-my.sharepoint.com/:f:/g/personal/jdmartinev_eafit_edu_co/El6GJ5EpcR5PiKJJkoSotHsBrqrlsGEcfB2pUerg9QOPpA?e=NVXca3)
+
+---
+
+## 📌 4. Actividad obligatoria: Actualizar la base de datos con las nuevas imágenes
+### ✅ ¿Qué debes hacer?
+1. **Descargar y descomprimir las imágenes** en la carpeta:
+```
+media/movie/images/
+```
+
+2. **Crear el comando `modify_image_paths_db` en la app movie**:
+```
+movie/management/commands/modify_image_paths_db.py
+```
+
+3. **Ejecutar el comando**:
+```bash
 python manage.py modify_image_paths_db
-````
+```
 
-Cuando ejecute el servidor podrá notar que la imagen de cada película corresponde a la ilustración creada por la API de generación de imágenes
+✅ Este comando actualiza la ruta de la imagen de cada película en la base de datos.
 
-![Fork 1](imgs/mp2a.png)
+---
 
-__Nota:__ El archivo [movie_pictures_hf.py](movie_pictures_hf.py) muestra como generar imágenes de las películas utilizando la API de un modelo de generación de imágenes llamado Stable Diffusion alojado en HuggingFace. Este paso es opcional pero puede ser una alternativa libre y sin costo para utilizar en los proyectos.
+## 📂 5. Resultado esperado
+Al correr el servidor de Django, las imágenes mostradas en la vista de cada película serán las generadas por la API de OpenAI.
+
+---
+
+## ✅ 6. Alternativa (OPCIONAL)
+También puedes explorar el archivo `movie_pictures_hf.py` para generar imágenes con Stable Diffusion en Hugging Face.
+
+---
+
+## 📌 7. Resumen Final
+| Paso | Acción | ¿Obligatorio? |
+|-----|--------|--------------|
+| 1   | Conectar y usar la API (revisar) | ❌ Opcional |
+| 2   | Generar imágenes desde la API    | ❌ Opcional |
+| 3   | Descargar imágenes y actualizar rutas | ✅ Sí, obligatorio |
+| 4   | Explorar Hugging Face (opcional) | ❌ Opcional |
+
+---
 
