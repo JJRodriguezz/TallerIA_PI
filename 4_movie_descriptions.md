@@ -167,6 +167,8 @@ Este comando:
 
 ✅ Al finalizar, tendrás las descripciones enriquecidas en tu base de datos.
 
+✅ Para ejecutar el comando, debes asegurate de que la consola esté ubicada en la carpeta del proyecto Django ``DjangoProjectBase``.
+
 ---
 
 ## 📂 6. Estructura del CSV entregado
@@ -219,3 +221,5 @@ python manage.py update_and_export_movies
 ---
 
 ✅ Con esto garantizamos que todos trabajen con los mismos datos y minimizamos costos de uso de la API.
+✅ **Entregable:** Captura de pantalla donde se evidencie la actualización de la descripción de las películas en la base de datos.
+
