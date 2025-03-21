@@ -31,7 +31,10 @@ movie/management/commands/generate_images.py
 ### ✅ ¿Qué hace cada parte?
 
 ```python
-# Carga las variables de entorno con la API Key
+# ✅ Load environment variables from the .env file
+load_dotenv('../openAI.env')
+
+# ✅ Initialize the OpenAI client with the API key
 client = OpenAI(
     api_key=os.environ.get('openai_apikey'),
     )
