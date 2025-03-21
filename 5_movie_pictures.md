@@ -119,10 +119,12 @@ python manage.py runserver
 
 ✅ Accede a la vista de las películas y verifica que la imagen de la primera película corresponde a la generada.
 
-✅ **Toma una captura de pantalla** y guárdala como:
-```
-screenshot_generated_image.png
-```
+✅ **Toma una captura de pantalla** y guárdala.
+
+<div align="center">
+  <img src="imgs/updatemovies1.png" alt="Imagenes.txt">
+</div>
+
 
 ✅ Esta es la evidencia de tu proceso funcionando.
 
