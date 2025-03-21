@@ -90,8 +90,9 @@ python manage.py update_descriptions
 
 
 ## 🚨 4. ¿Qué hicimos nosotros por ti?
-✅ Ya ejecutamos el proceso completo con la API.  
-✅ Generamos el archivo **`updated_movie_descriptions.csv`** con todas las descripciones actualizadas.
+✅ Ya ejecutamos el proceso completo con la API utilizando el comando [update_and_export_movies.py](update_and_export_movies.py).  
+✅ Como resultado, generamos el archivo **`updated_movie_descriptions.csv`** con todas las descripciones actualizadas.
+
 
 ---
 
