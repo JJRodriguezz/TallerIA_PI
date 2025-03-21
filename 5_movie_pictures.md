@@ -168,6 +168,8 @@ python manage.py update_images_from_folder
 
 ✅ Al visualizar el sitio, verás cada película con su respectiva imagen generada por la API.
 
+📸 Entregable: Debes adjuntar una captura de pantalla donde se visualice la base de datos o la interfaz de la aplicación mostrando las imágenes generadas y actualizadas para las películas.
+
 ---
 
 ## 📌 8. Nota final
