@@ -1,4 +1,4 @@
-# 🎯 Taller - Recomendador de Películas usando Embeddings y OpenAI
+# 🎯 Recomendador de Películas usando Embeddings y OpenAI
 
 ## ✅ Objetivo
 Crear un sistema de recomendación de películas utilizando **embeddings generados por OpenAI** y calcular la similitud entre las películas.
