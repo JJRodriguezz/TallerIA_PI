@@ -62,8 +62,8 @@ Esto permitirá observar cómo el sistema puede recomendar una película basada 
 load_dotenv('openAI.env')
 client = OpenAI(api_key=os.environ.get('openai_apikey'))
 
-movie1 = Movie.objects.get(title="Saving Private Ryan")
-movie2 = Movie.objects.get(title="Schindler's List")
+movie1 = Movie.objects.get(title="La lista de Schindler")
+movie2 = Movie.objects.get(title="El club de la pelea")
 ```
 - Carga la API Key
 - Selecciona las películas desde la base de datos por su título
@@ -122,9 +122,9 @@ self.stdout.write(f"📝 Similitud prompt vs '{movie2.title}': {sim_prompt_movie
 ## ✅ Resultado esperado
 
 ```
-🎬 Saving Private Ryan vs Schindler's List: 0.8521
-📝 Similitud prompt vs 'Saving Private Ryan': 0.9121
-📝 Similitud prompt vs 'Schindler's List': 0.8998
+🎬 La Lista Schindler vs El club de la pelea: 0.5234
+📝 Similitud prompt vs La Lista Schindler: 0.9121
+📝 Similitud prompt vs El club de la pelea: 0.3123
 ```
 
 ✅ Esto sugiere que ambas películas están relacionadas y el sistema puede recomendar la más cercana al prompt.
