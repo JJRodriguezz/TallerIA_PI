@@ -11,8 +11,7 @@ En este workshop integraremos herramientas de **Inteligencia Artificial** al pro
 
 ## 🔔 Recomendación Importante
 **Antes de realizar cada actividad, lee el documento completo de la etapa correspondiente.**  
-Esto te permitirá comprender mejor las instrucciones y evitar errores durante el desarrollo.
-
+Esto te permitirá comprender mejor las instrucciones y evitar errores durante el desarrollo. \
 Ejemplo: Lee el documento **1_Fork_and_clone.md** completo antes de realizar las actividades del punto 1.  
 Haz lo mismo con cada etapa del taller.
 ---
