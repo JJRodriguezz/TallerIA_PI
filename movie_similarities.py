@@ -1,73 +1,46 @@
-from dotenv import load_dotenv, find_dotenv
-import json
 import os
-from openai import OpenAI
-#from openai.embeddings_utils import get_embedding, cosine_similarity
 import numpy as np
+from django.core.management.base import BaseCommand
+from movie.models import Movie
+from openai import OpenAI
+from dotenv import load_dotenv
 
-_ = load_dotenv('api_keys.env')
-client = OpenAI(
-    # This is the default and can be omitted
-    api_key=os.environ.get('openai_api_key'),
-)
+class Command(BaseCommand):
+    help = "Compare two movies and optionally a prompt using OpenAI embeddings"
 
-with open('movie_descriptions.json', 'r') as file:
-    file_content = file.read()
-    movies = json.loads(file_content)
+    def handle(self, *args, **kwargs):
+        # ✅ Load OpenAI API key
+        load_dotenv('../openAI.env')
+        client = OpenAI(api_key=os.environ.get('openai_apikey'))
 
-#Esta función devuelve una representación numérica (embedding) de un texto, en este caso
-#la descripción de las películas
-    
-def get_embedding(text, model="text-embedding-3-small"):
-   text = text.replace("\n", " ")
-   return client.embeddings.create(input = [text], model=model).data[0].embedding
+        # ✅ Change these titles for any movies you want to compare
+        movie1 = Movie.objects.get(title="La lista de Schindler")
+        movie2 = Movie.objects.get(title="El club de la pelea")
 
-def cosine_similarity(a, b):
-    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+        def get_embedding(text):
+            response = client.embeddings.create(
+                input=[text],
+                model="text-embedding-3-small"
+            )
+            return np.array(response.data[0].embedding, dtype=np.float32)
 
-emb = get_embedding(movies[1]['description'])
-print(emb)
+        def cosine_similarity(a, b):
+            return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
 
-#Vamos a crear una nueva llave con el embedding de la descripción de cada película en el archivo .json
+        # ✅ Generate embeddings of both movies
+        emb1 = get_embedding(movie1.description)
+        emb2 = get_embedding(movie2.description)
 
+        # ✅ Compute similarity between movies
+        similarity = cosine_similarity(emb1, emb2)
+        self.stdout.write(f"\U0001F3AC Similaridad entre '{movie1.title}' y '{movie2.title}': {similarity:.4f}")
 
-for i in range(len(movies)):
-  emb = get_embedding(movies[i]['description'])
-  movies[i]['embedding'] = emb
+        # ✅ Optional: Compare against a prompt
+        prompt = "película sobre la Segunda Guerra Mundial"
+        prompt_emb = get_embedding(prompt)
 
+        sim_prompt_movie1 = cosine_similarity(prompt_emb, emb1)
+        sim_prompt_movie2 = cosine_similarity(prompt_emb, emb2)
 
-#Vamos a almacenar esta información en un nuevo archivo .json
-file_name = 'movie_descriptions_embeddings.json'
-with open(file_name, 'w') as file:
-    json.dump(movies, file)
-
-
-print(movies[0])
-
-#Para saber cuáles películas se parecen más, podemos hacer lo siguiente:
-print(movies[27]['title'])
-print(movies[3]['title'])
-print(movies[20]['title'])
-
-#Calculamos la similitud de coseno entre los embeddings de las descripciones de las películas. Entre más alta la similitud
-#más parecidas las películas.
-
-print(f"Similitud entre película {movies[27]['title']} y {movies[3]['title']}: {cosine_similarity(movies[27]['embedding'],movies[3]['embedding'])}")
-print(f"Similitud entre película {movies[27]['title']} y {movies[20]['title']}: {cosine_similarity(movies[27]['embedding'],movies[20]['embedding'])}")
-print(f"Similitud entre película {movies[20]['title']} y {movies[3]['title']}: {cosine_similarity(movies[20]['embedding'],movies[3]['embedding'])}")
-
-#Si se tuviera un prompt por ejemplo: Película de la segunda guerra mundial, podríamos generar el embedding del prompt y comparar contra 
-#los embeddings de cada una de las películas de la base de datos. La película con la similitud más alta al prompt sería la película
-#recomendada.
-
-req = "película de la segunda guerra mundial"
-emb = get_embedding(req)
-
-sim = []
-for i in range(len(movies)):
-  sim.append(cosine_similarity(emb,movies[i]['embedding']))
-sim = np.array(sim)
-idx = np.argmax(sim)
-print(movies[idx]['title'])
-
-
+        self.stdout.write(f"\U0001F4DD Similitud prompt vs '{movie1.title}': {sim_prompt_movie1:.4f}")
+        self.stdout.write(f"\U0001F4DD Similitud prompt vs '{movie2.title}': {sim_prompt_movie2:.4f}")
