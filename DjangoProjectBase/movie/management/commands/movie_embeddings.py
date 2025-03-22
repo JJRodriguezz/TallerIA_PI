@@ -34,6 +34,5 @@ class Command(BaseCommand):
                 self.stdout.write(self.style.SUCCESS(f"✅ Embedding stored for: {movie.title}"))
             except Exception as e:
                 self.stderr.write(f"❌ Failed to generate embedding for {movie.title}: {e}")
-            break
 
         self.stdout.write(self.style.SUCCESS("🎯 Finished generating embeddings for all movies"))
