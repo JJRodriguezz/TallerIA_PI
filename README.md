@@ -22,10 +22,11 @@ Archivo pdf con:
 
 1. ✅ Link del repositorio del proyecto
 2. ✅ Captura de pantalla donde se evidencie la modificación de la descripción de la primera película de la base de datos ejecutando el comando [update_descriptions.py](update_descriptions.py). 
-3. ✅ Captura de pantalla donde se evidencie la actualización de la descripción de las películas en la base de datos.
-4. Pantallazo de las películas con la imagen generada con la API 
-5. Pantallazo del resultado de la ejecución del archivo check_embeddings_db.py
-6. Pantallazo del resultado de la ejecución del archivo check_rec_sys_db.py
+3. ✅ Captura de pantalla donde se evidencie la actualización de la descripción de las películas en la base de datos con el comando generado `update_descriptions_from_csv`.
+4. Captura de pantalla que evidencie la modificación de la imagen de la primera película en la base de datos con el archivo [update_images.py](update_images.py)
+5. Captura de pantalla que evidencie la modificación de todas las películas en la base de datos con el comando generado `update_images_from_folder`
+6. Pantallazo del resultado de la ejecución del archivo check_embeddings_db.py
+7. Pantallazo del resultado de la ejecución del archivo check_rec_sys_db.py
 
 ### Entregable para la semana del 23 de septiembre de 2024
 
