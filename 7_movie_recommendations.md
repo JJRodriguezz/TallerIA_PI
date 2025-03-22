@@ -7,7 +7,7 @@ Para construir un sistema de recomendación eficiente, es necesario **almacenar 
 
 En sistemas reales, normalmente se utilizan **bases de datos vectoriales** como **Pinecone**, **FAISS** o **Weaviate** que están optimizadas para realizar búsquedas rápidas por similitud. 
 
-En este taller, aprenderemos a almacenar los embeddings **directamente en la base de datos por defecto de Django** (SQLite o PostgreSQL) usando un campo binario, lo que nos permite:
+En este taller, aprenderemos a almacenar los embeddings **directamente en la base de datos por defecto de Django** (SQLite) usando un campo binario, lo que nos permite:
 
 ✅ Evitar instalar una base de datos vectorial externa  
 ✅ Controlar completamente el proceso de almacenamiento y recuperación  
