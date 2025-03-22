@@ -73,6 +73,22 @@ for movie in movies:
     movie.save()
 ```
 
+Este fragmento recorre todas las películas de la base de datos y actualiza su descripción usando una IA (como GPT).
+
+¿Qué hace cada parte?
+
+    Movie.objects.all(): Obtiene todas las películas de la base de datos.
+
+    for movie in movies: Recorre cada película.
+
+    prompt: Construye el mensaje para la IA con el título y la descripción actual.
+
+    get_completion(prompt): Llama a la IA y genera una nueva descripción.
+
+    movie.description = response: Actualiza la descripción.
+
+    movie.save(): Guarda el cambio en la base de datos.
+
 ### 📥 Este proceso debe realizarse como un **comando de Django dentro de la app `movie`**, ubicado en:
 ```
 movie/management/commands/update_descriptions.py
