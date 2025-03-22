@@ -20,8 +20,8 @@ Las instrucciones de cada etapa del proyecto son las siguientes:
 
 Archivo pdf con:
 
-1. GitHub del proyecto
-2. Pantallazo de las películas con la imagen default
+1. ✅ Link del repositorio del proyecto
+2. ✅ Captura de pantalla donde se evidencie la actualización de la descripción de las películas en la base de datos.
 3. Pantallazo de las películas con la imagen generada con la API 
 4. Pantallazo del resultado de la ejecución del archivo check_embeddings_db.py
 5. Pantallazo del resultado de la ejecución del archivo check_rec_sys_db.py
