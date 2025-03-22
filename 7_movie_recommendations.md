@@ -31,8 +31,8 @@ def get_default_array():
 
 class Movie(models.Model): 
     title = models.CharField(max_length=100)
-    description = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='movie/images/', default='movie/images/default.jpg')
+    description = models.CharField(max_length=1500) 
+    image = models.ImageField(upload_to='movie/images/', default = 'movie/images/default.jpg') 
     url = models.URLField(blank=True)
     genre = models.CharField(blank=True, max_length=250)
     year = models.IntegerField(blank=True, null=True)
@@ -71,7 +71,7 @@ De esta forma, podemos almacenar el vector como un campo **BinaryField** y recup
 
 ## 🔄 Generar y almacenar embeddings desde la API de OpenAI
 
-Hemos creado el comando `generate_embeddings` que:
+Hemos creado el comando [movie_embeddings.py](movie_embeddings.py) que:
 
 ✅ Recorre cada película en la base de datos  
 ✅ Genera el embedding usando la descripción de la película  
@@ -79,7 +79,7 @@ Hemos creado el comando `generate_embeddings` que:
 
 ### 🔄 Ejecución:
 ```bash
-python manage.py generate_embeddings
+python manage.py movie_embeddings
 ```
 
 ### 🔄 Resultado esperado:
