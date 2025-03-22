@@ -122,8 +122,8 @@ self.stdout.write(f"📝 Similitud prompt vs '{movie2.title}': {sim_prompt_movie
 ## ✅ Resultado esperado
 
 ```
-🎬 La Lista Schindler vs El club de la pelea: 0.5234
-📝 Similitud prompt vs La Lista Schindler: 0.9121
+🎬 La lista de Schindler vs El club de la pelea: 0.5234
+📝 Similitud prompt vs La lista de Schindler: 0.9121
 📝 Similitud prompt vs El club de la pelea: 0.3123
 ```
 
