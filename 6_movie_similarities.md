@@ -45,12 +45,22 @@ Para comprender cómo funciona la generación de **embeddings** y el cálculo de
 De esta forma, podrás observar cómo el sistema mide qué tan parecidas son dos películas a partir de sus descripciones.
 
 ---
+## 📌 3. Comparación contra un prompt
 
-## 📌 3. Explicación del Código
+Además, para entender mejor el funcionamiento del sistema de recomendación, el comando también permitirá:
+
+✅ Definir un **prompt o descripción cualquiera** (por ejemplo: "película sobre la Segunda Guerra Mundial")  
+✅ Generar el **embedding del prompt** usando la API de OpenAI  
+✅ Calcular la **similitud de coseno** entre el embedding del prompt y el embedding de una película seleccionada
+
+Esto permitirá observar cómo el sistema puede recomendar una película basada en la similitud temática con un texto de entrada libre.
+
+---
+## 📌 4. Explicación del Código
 ### ✅ Conectarse a la API de OpenAI y cargar las películas
 ```python
 load_dotenv('openAI.env')
-client = OpenAI(api_key=os.environ.get('openai_api_key'))
+client = OpenAI(api_key=os.environ.get('openai_apikey'))
 
 movie1 = Movie.objects.get(title="Saving Private Ryan")
 movie2 = Movie.objects.get(title="Schindler's List")
@@ -60,7 +70,9 @@ movie2 = Movie.objects.get(title="Schindler's List")
 
 ---
 
-## 📌 2. Función para generar el embedding
+### ✅ Funciones principales
+
+#### Obtener el embedding de cualquier texto o prompt
 ```python
 def get_embedding(text):
     response = client.embeddings.create(input=[text], model="text-embedding-3-small")
@@ -69,42 +81,52 @@ def get_embedding(text):
 - Envía la descripción a OpenAI
 - Recibe el embedding como un vector numérico
 
----
-
-## 📌 3. Función para calcular la similitud de coseno
+#### Calcular la similitud de coseno
 ```python
 def cosine_similarity(a, b):
     return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
 ```
-- Calcula qué tan parecidas son dos películas comparando sus embeddings
+- Calcula qué tan parecidas son dos películas o una película y un prompt
 
 ---
 
-## 📌 4. Calcular los embeddings y compararlos
+### ✅ Cómo se usan las funciones en el comando
+
+#### Calcular la similitud entre dos películas
 ```python
 emb1 = get_embedding(movie1.description)
 emb2 = get_embedding(movie2.description)
 
 similarity = cosine_similarity(emb1, emb2)
-```
-✅ Genera los embeddings  
-✅ Calcula la similitud entre las dos descripciones
-
----
-
-## 📌 5. Interpretar el resultado
-```python
 self.stdout.write(f"🎬 {movie1.title} vs {movie2.title}: {similarity:.4f}")
 ```
-- Muestra en consola el nivel de similitud
-- Un valor **mayor a 0.7** suele indicar que las películas son similares temáticamente
+- Genera los embeddings
+- Calcula la similitud entre las dos descripciones
+- Imprime el resultado
+
+#### Calcular la similitud entre un prompt y las películas
+```python
+prompt = "película sobre la Segunda Guerra Mundial"
+prompt_emb = get_embedding(prompt)
+
+sim_prompt_movie1 = cosine_similarity(prompt_emb, emb1)
+sim_prompt_movie2 = cosine_similarity(prompt_emb, emb2)
+
+self.stdout.write(f"📝 Similitud prompt vs '{movie1.title}': {sim_prompt_movie1:.4f}")
+self.stdout.write(f"📝 Similitud prompt vs '{movie2.title}': {sim_prompt_movie2:.4f}")
+```
+- Calcula qué tan similar es cada película respecto al prompt
 
 ---
 
 ## ✅ Resultado esperado
-Ejemplo de salida:
+
 ```
 🎬 Saving Private Ryan vs Schindler's List: 0.8521
+📝 Similitud prompt vs 'Saving Private Ryan': 0.9121
+📝 Similitud prompt vs 'Schindler's List': 0.8998
 ```
 
-✅ Esto sugiere que ambas películas comparten una temática cercana (en este caso, la Segunda Guerra Mundial).
+✅ Esto sugiere que ambas películas están relacionadas y el sistema puede recomendar la más cercana al prompt.
+
+---
