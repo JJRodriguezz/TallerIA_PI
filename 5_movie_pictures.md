@@ -25,7 +25,7 @@ El código lo puedes encontrar en el archivo [update_images.py](update_images.py
 ## 📌 2. Descripción del comando `update_images`
 El comando se debe ubicar en:
 ```
-movie/management/commands/generate_images.py
+movie/management/commands/update_images.py
 ```
 
 ### ✅ ¿Qué hace cada parte?
