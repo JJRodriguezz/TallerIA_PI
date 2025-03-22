@@ -45,9 +45,8 @@ Para comprender cómo funciona la generación de **embeddings** y el cálculo de
 De esta forma, podrás observar cómo el sistema mide qué tan parecidas son dos películas a partir de sus descripciones.
 
 ---
----
 
-## 📌 1. Explicación del Código
+## 📌 3. Explicación del Código
 ### ✅ Conectarse a la API de OpenAI y cargar las películas
 ```python
 load_dotenv('openAI.env')
