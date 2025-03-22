@@ -235,6 +235,7 @@ También se entrega el comando [update_and_export_movies.py](update_and_export_m
 ---
 
 ✅ Con esto garantizamos que todos trabajen con los mismos datos y minimizamos costos de uso de la API. 
+
 ✅ **Entregable:** Captura de pantalla donde se evidencie la actualización de la descripción de las películas en la base de datos.
 
 
