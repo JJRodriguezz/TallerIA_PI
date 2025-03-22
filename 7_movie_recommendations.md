@@ -113,6 +113,79 @@ A partir de este punto, cualquier recomendación se puede hacer comparando los e
 ---
 
 ## 📚 Nota:
-De forma opcional, podrías generar los embeddings usando otros modelos como Gemini (ver archivo `movie_descriptions_gemini.py`), pero para este taller trabajamos con OpenAI.
+De forma opcional, podrías generar los embeddings usando otros modelos como Gemini, pero para este taller trabajamos con OpenAI.
 
 ---
+
+## 🎯 Actividad Final - Construcción del Sistema de Recomendación
+
+Ahora que la base de datos está poblada con los embeddings de cada película, construiremos nuestro sistema de recomendación.
+
+### ✅ ¿Qué deben hacer?
+
+Debes crear una **página web en la app `movie`** de nuestro proyecto Django donde:
+
+- Reciban como entrada un **prompt** o descripción escrita por el usuario
+- Generen el **embedding de ese prompt** usando la API de OpenAI
+- Recorran la base de datos y calculen la **similitud de coseno** entre el embedding del prompt y cada película
+- Devuelvan en la página la película **más similar** encontrada
+
+✅ El resultado debe ser visible en la página web, mostrando la película recomendada.
+
+> 💡 Esta es la forma básica de un sistema de recomendación basado en embeddings y similitud semántica.
+
+---
+
+### 📌 Ejemplo de cómo generar el embedding del prompt de búsqueda y recorrer la base de datos:
+
+```python
+from openai import OpenAI
+import numpy as np
+import os
+from dotenv import load_dotenv
+from movie.models import Movie
+
+# Cargar la API Key
+load_dotenv('openAI.env')
+client = OpenAI(api_key=os.environ.get('openai_apikey'))
+
+# Función para calcular similitud de coseno
+def cosine_similarity(a, b):
+    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
+# Recibir el prompt del usuario (esto se debe recibir desde el formulario de la app)
+prompt = "película de la segunda guerra mundial"
+
+# Generar embedding del prompt
+response = client.embeddings.create(
+    input=[prompt],
+    model="text-embedding-3-small"
+)
+prompt_emb = np.array(response.data[0].embedding, dtype=np.float32)
+
+# Recorrer la base de datos y comparar
+best_movie = None
+max_similarity = -1
+
+for movie in Movie.objects.all():
+    movie_emb = np.frombuffer(movie.emb, dtype=np.float32)
+    similarity = cosine_similarity(prompt_emb, movie_emb)
+
+    if similarity > max_similarity:
+        max_similarity = similarity
+        best_movie = movie
+
+print(f"La película más similar al prompt es: {best_movie.title} con similitud {max_similarity:.4f}")
+```
+✅ Esta estructura te permite recibir cualquier texto de búsqueda y encontrar la película más cercana por similitud semántica.
+
+✅ Entregables:
+
+    📸 Capturas de pantalla mostrando el sistema de recomendación funcionando:
+
+        La página debe mostrar el campo de entrada para el prompt.
+
+        Debe verse la película recomendada en la respuesta.
+
+✅ Resultado esperado: una página donde el usuario ingresa el prompt y se recomienda la película más similar usando embeddings y similitud de coseno.
+
