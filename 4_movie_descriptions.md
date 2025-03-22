@@ -32,7 +32,7 @@ client = OpenAI(api_key=os.environ.get('openai_apikey'))
 
 ---
 
-## 📌 2. Función auxiliar para obtener la respuesta de la API (OPCIONAL - SOLO CONSULTA)
+## 📌 2. Función auxiliar para obtener la respuesta de la API
 Creamos una función `get_completion()` que se encarga de:
 ✅ Recibir el `prompt` como entrada  
 ✅ Armar la estructura de la conversación requerida por la API  
@@ -61,8 +61,8 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
 
 ---
 
-## 📌 3. Recorrer la base de datos y generar descripciones (OPCIONAL - SOLO CONSULTA)
-Este paso es costoso y **NO debe ser ejecutado**. Lo mostramos para que conozcas el proceso.
+## 📌 3. Recorrer la base de datos y generar descripciones
+Este paso es costoso y, en el taller, debe ejecutarse solo para una película (por eso se usa el break dentro del ciclo que recorre las películas). Lo mostramos únicamente para que conozcas el proceso.
 
 ```python
 movies = Movie.objects.all()
@@ -71,6 +71,7 @@ for movie in movies:
     response = get_completion(prompt)
     movie.description = response
     movie.save()
+    #break
 ```
 
 Este fragmento recorre todas las películas de la base de datos y actualiza su descripción usando una IA (como GPT).
@@ -90,23 +91,22 @@ Este fragmento recorre todas las películas de la base de datos y actualiza su d
     movie.save(): Guarda el cambio en la base de datos.
 
 ### 📥 Este proceso debe realizarse como un **comando de Django dentro de la app `movie`**, ubicado en:
+
+🔎El código lo pueden encontrar en el archivo [update_descriptions.py](update_descriptions.py)
 ```
 movie/management/commands/update_descriptions.py
 ```
-Y ejecutarlo así (solo si fuera necesario):
+Y ejecutarlo así:
 ```bash
 python manage.py update_descriptions
 ```
-
-✅ Sin embargo, este comando **ya fue ejecutado por el equipo docente** y se entrega solo para consulta.
-
-
-🔎 Para consulta, el código lo pueden encontrar en el archivo [update_descriptions.py](update_descriptions.py)
+✅ Este comando modificará la descripción **únicamente de la primera película en la base de datos**
+✅ Ingresa a la página de admin de la aplicación y verifica que la descripción de la primera película fue modificada. Toma una captura de pantalla.
 ---
 
 
 ## 🚨 4. ¿Qué hicimos nosotros por ti?
-✅ Ya ejecutamos el proceso completo con la API utilizando el comando [update_and_export_movies.py](update_and_export_movies.py).  
+✅ Ya ejecutamos el proceso completo con la API utilizando el comando [update_and_export_movies.py](update_and_export_movies.py) para almacenar las descripciones actualizadas de todas las películas.  
 ✅ Como resultado, generamos el archivo [updated_movie_descriptions.csv](updated_movie_descriptions.csv) con todas las descripciones actualizadas.
 
 
@@ -114,8 +114,9 @@ python manage.py update_descriptions
 
 ## 📌 5. ¿Qué debes hacer tú? (OBLIGATORIO)
 
-### ✅ Crear el comando de Django `update_movies_from_csv`
-Ubícalo en:
+### ✅ Crear un comando de Django `update_movies_from_csv` que tome las descripciones actualizadas con IA del archivo [updated_movie_descriptions.csv](updated_movie_descriptions.csv) y las actualice en la base de datos del proyecto.
+
+Ubíca este comando en:
 ```
 movie/management/commands/update_movies_from_csv.py
 ```
@@ -213,23 +214,20 @@ Finished updating 50 movies from CSV.
 ---
 
 ## 📌 8. Archivo adicional (OPCIONAL - NO EJECUTAR)
-También se entrega el comando `update_and_export_movies.py` que permite:
-- Recorrer las películas
-- Consultar la API
-- Crear un nuevo CSV
+También se entrega el comando [update_and_export_movies.py](update_and_export_movies.py) con el que se generaron las descripciones de las películas. Este comando:
+- Recorre las películas
+- Consulta la API
+- Crea un nuevo CSV
 
 ⚠️ *Este comando es solo de referencia y **NO debe ejecutarse**.*
 
-```bash
-python manage.py update_and_export_movies
-```
 
 ---
 
 ## 📌 9. Resumen Final:
 | Paso | Acción | ¿Obligatorio? |
 |-----|--------|--------------|
-| 1   | Conectar a la API (revisar) | ❌ Opcional |
+| 1   | Conectar a la API (revisar) | ✅  |
 | 2   | Preparar y enviar prompts   | ❌ Opcional |
 | 3   | Generar CSV con la API      | ❌ Opcional |
 | 4   | Usar el CSV para actualizar la BD | ✅ Sí, obligatorio |
