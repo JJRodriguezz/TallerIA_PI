@@ -5,7 +5,7 @@ Aprenderás a utilizar la API de OpenAI en un proyecto Django para enriquecer la
 
 ---
 
-## 📌 1. Conexión con la API de OpenAI (OPCIONAL - SOLO CONSULTA)
+## 📌 1. Conexión con la API de OpenAI
 Esta sección es para que comprendas cómo se configura y conecta el proyecto a la API de OpenAI.
 
 ### 🔑 ¿Qué necesitas?
