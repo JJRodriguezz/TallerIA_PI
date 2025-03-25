@@ -5,15 +5,29 @@ Aprenderás a utilizar la API de OpenAI en un proyecto Django para enriquecer la
 
 ---
 
-## 📌 1. Conexión con la API de OpenAI
+✅ Conectarte a la API de OpenAI  
+✅ Generar una descripción para una película usando una función auxiliar  
+✅ Actualizar la base de datos con la nueva descripción
+
+⚠️ Por ahora, el comando está configurado para actualizar la descripción **solo de la primera película**.
+
+✅ Esto es intencional para **ahorrar recursos y evitar costos de API**.
+
+✅ **Las descripciones de todas las películas ya fueron generadas** y se entregan en un archivo listo para usar.
+
+🚫 **No debes quitar el `break`.**
+
+
+## 📌 2. Descripción del comando **update_descriptions** 
+
 Esta sección es para que comprendas cómo se configura y conecta el proyecto a la API de OpenAI.
 
 ### 🔑 ¿Qué necesitas?
-1. Crear un archivo `.env` donde almacenes tu API Key de forma segura:
+2.1. Crear un archivo `.env` donde almacenes tu API Key de forma segura:
 ```
 openai_apikey=sk-xxxxxxxxxxxxxxxxxxxx
 ```
-2. Cargar esa clave en tu código usando la librería `dotenv`.
+Cargar esa clave en tu código usando la librería `dotenv`.
 
 ### ✅ Código de conexión explicado:
 ```python
@@ -32,7 +46,7 @@ client = OpenAI(api_key=os.environ.get('openai_apikey'))
 
 ---
 
-## 📌 2. Función auxiliar para obtener la respuesta de la API
+## 📌 2.2. Función auxiliar para obtener la respuesta de la API
 Creamos una función `get_completion()` que se encarga de:
 ✅ Recibir el `prompt` como entrada  
 ✅ Armar la estructura de la conversación requerida por la API  
@@ -61,7 +75,7 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
 
 ---
 
-## 📌 3. Recorrer la base de datos y generar descripciones
+## 📌 2.3. Recorrer la base de datos y generar descripciones
 Este paso es costoso y, en el taller, debe ejecutarse solo para una película (por eso se usa el break dentro del ciclo que recorre las películas). Lo mostramos únicamente para que conozcas el proceso.
 
 ```python
@@ -90,7 +104,7 @@ Este fragmento recorre todas las películas de la base de datos y actualiza su d
 
     movie.save(): Guarda el cambio en la base de datos.
 
-## 📌 4. Ejecución 
+## 📌 2.4. Ejecución 
 
 📥 Este proceso debe realizarse como un **comando de Django dentro de la app `movie`**, ubicado en:
 
@@ -115,7 +129,7 @@ python manage.py update_descriptions
 > ⚠️ **Importante:** NO DEBES QUITAR EL ``BREAK`` DEL CÓDIGO. Esto generaría un consumo elevado de la API de OpenAI. Por esta razón, las descripciones de las películas fueron previamente generadas.
  
 
-## 🚨 5. Actividad
+## 🚨 3. Actividad
 
 🔎 Qué hicimos por ti:
 
@@ -228,7 +242,7 @@ Finished updating 50 movies from CSV.
 
 ---
 
-## 📌 6. Resumen Final:
+## 📌 4. Resumen Final:
 | Paso | Acción | ¿Obligatorio? |
 |-----|--------|--------------|
 | 1   | Conectar a la API (revisar) | ✅ |
