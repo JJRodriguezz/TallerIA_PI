@@ -96,12 +96,13 @@ movie/management/commands/update_descriptions.py
 
 🔎El código lo pueden encontrar en el archivo [update_descriptions.py](update_descriptions.py)
 
-### Actividad: Ejecutar el comando:
+### Actividad: Ejecutar el comando:###
 
 ```bash
 python manage.py update_descriptions
 ```
 ✅ Este comando modificará la descripción **únicamente de la primera película en la base de datos**
+
 ✅ Ingresa a la página de admin de la aplicación y verifica que la descripción de la primera película fue modificada. Toma una captura de pantalla.
 ---
 
