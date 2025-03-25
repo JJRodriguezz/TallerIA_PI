@@ -90,9 +90,13 @@ Este fragmento recorre todas las películas de la base de datos y actualiza su d
 
     movie.save(): Guarda el cambio en la base de datos.
 
-### 📥 Este proceso debe realizarse como un **comando de Django dentro de la app `movie`**, ubicado en:
+## 📌 4. Ejecución 
 
+📥 Este proceso debe realizarse como un **comando de Django dentro de la app `movie`**, ubicado en:
+
+``` 
 movie/management/commands/update_descriptions.py
+```
 
 🔎El código lo pueden encontrar en el archivo [update_descriptions.py](update_descriptions.py)
 
@@ -109,7 +113,7 @@ python manage.py update_descriptions
  ---
 
 
-## 🚨 4. ¿Qué hicimos nosotros por ti?
+## 🚨 5. ¿Qué hicimos nosotros por ti?
 ✅ Ya ejecutamos el proceso completo con la API utilizando el comando [update_and_export_movies.py](update_and_export_movies.py) para almacenar las descripciones actualizadas de todas las películas.  
 
 ✅ Como resultado, generamos el archivo [updated_movie_descriptions.csv](updated_movie_descriptions.csv) con todas las descripciones actualizadas.
@@ -118,7 +122,7 @@ python manage.py update_descriptions
 
 ### 📌¿Qué debes hacer tú? 
 
-✅ Crear un comando de Django `update_movies_from_csv` que tome las descripciones actualizadas con IA del archivo [updated_movie_descriptions.csv](updated_movie_descriptions.csv) y las actualice en la base de datos del proyecto.
+✅ **Actividad:** Crear un comando de Django `update_movies_from_csv` que tome las descripciones actualizadas con IA del archivo [updated_movie_descriptions.csv](updated_movie_descriptions.csv) y las actualice en la base de datos del proyecto.
 
 Ubíca este comando en:
 ```
