@@ -1,6 +1,17 @@
 
 # 🌟 Generación y almacenamiento de embeddings en la base de datos
 
+✅ Objetivo
+
+Aprenderás a utilizar la API de OpenAI en un proyecto Django para almacenar los embeddings de las películas en la base de datos y generar un sistema de recomendación.
+
+✅ Conectarte a la API de OpenAI
+✅ Obtener los embeddings de las descripciones de las películas usando una función auxiliar
+✅ Almacenar los embeddings en la base de datos
+✅ Generar un sistema de recomendación basado en similitud de embeddings
+
+---
+
 ## 🔗 ¿Por qué almacenar los embeddings en la base de datos?
 
 Para construir un sistema de recomendación eficiente, es necesario **almacenar los embeddings de cada película**. Esto permite que, en lugar de calcular el embedding cada vez que se hace una búsqueda, podamos comparar rápidamente los vectores ya almacenados.
@@ -43,10 +54,6 @@ class Movie(models.Model):
 ```
 
 ✅ Recuerda que cada que modifiques el modelo debes ejecutar:
-```bash
-python manage.py makemigrations
-python manage.py migrate
-```
 
 ---
 
@@ -111,6 +118,11 @@ Tendrás cada película con su embedding almacenado y listo para hacer recomenda
 A partir de este punto, cualquier recomendación se puede hacer comparando los embeddings directamente desde la base de datos.
 
 ---
+
+## ✅ Actividad: 
+Crear el comando que permita visualizar los embeddings de una película seleccionada al azar. 
+**Entregable:** Captura de pantalla de los embeddings.
+
 
 ## 📚 Nota:
 De forma opcional, podrías generar los embeddings usando otros modelos como Gemini, pero para este taller trabajamos con OpenAI.
