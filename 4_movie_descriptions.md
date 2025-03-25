@@ -120,6 +120,16 @@ python manage.py update_descriptions
 
 ✅ Como resultado, generamos el archivo [updated_movie_descriptions.csv](updated_movie_descriptions.csv) con todas las descripciones actualizadas.
 
+
+
+### 📂 Estructura del CSV entregado
+El archivo contiene:
+
+| Title           | Updated Description                 |
+|-----------------|-------------------------------------|
+| Movie Title 1   | Descripción generada por OpenAI ... |
+| Movie Title 2   | Descripción generada por OpenAI ... |
+
 ---
 
 ### 📌¿Qué debes hacer tú? 
@@ -196,17 +206,6 @@ Este comando:
 
 ✅ Para ejecutar el comando, debes asegurate de que la consola esté ubicada en la carpeta del proyecto Django ``DjangoProjectBase``.
 
----
-
-## 📂 6. Estructura del CSV entregado
-El archivo contiene:
-
-| Title           | Updated Description                 |
-|-----------------|-------------------------------------|
-| Movie Title 1   | Descripción generada por OpenAI ... |
-| Movie Title 2   | Descripción generada por OpenAI ... |
-
----
 
 ## 💻 7. Ejemplo de ejecución (OBLIGATORIO):
 ```bash
