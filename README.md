@@ -36,6 +36,7 @@ Entregar un archivo **PDF** que contenga:
 4. ✅ Captura de pantalla de la **modificación de la imagen de la primera película** con [update_images.py](update_images.py).
 5. ✅ Captura de pantalla de la **modificación de todas las imágenes de las películas** usando `update_images_from_folder`.
 6. ✅ Captura de pantalla de la ejecución de la **generación de embeddings** y comparación con **similitud de coseno** usando [movie_similarities.py](movie_similarities.py).
+7. ✅ Captura de pantalla del embedding generado para una película al azar.
 
 ---
 
