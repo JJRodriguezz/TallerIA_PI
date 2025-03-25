@@ -92,10 +92,10 @@ Este fragmento recorre todas las películas de la base de datos y actualiza su d
 
 ### 📥 Este proceso debe realizarse como un **comando de Django dentro de la app `movie`**, ubicado en:
 
-🔎El código lo pueden encontrar en el archivo [update_descriptions.py](update_descriptions.py)
-```
 movie/management/commands/update_descriptions.py
 ```
+
+🔎El código lo pueden encontrar en el archivo [update_descriptions.py](update_descriptions.py)
 Y ejecutarlo así:
 ```bash
 python manage.py update_descriptions
