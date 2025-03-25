@@ -112,6 +112,8 @@ python manage.py update_descriptions
 
  ---
 
+> ⚠️ **Importante:** NO DEBES QUITAR EL ``BREAK`` DEL CÓDIGO. Esto generaría un consumo elevado de la API de OpenAI. Por esta razón, las descripciones de las películas fueron previamente generadas.
+ 
 
 ## 🚨 5. ¿Qué hicimos nosotros por ti?
 ✅ Ya ejecutamos el proceso completo con la API utilizando el comando [update_and_export_movies.py](update_and_export_movies.py) para almacenar las descripciones actualizadas de todas las películas.  
