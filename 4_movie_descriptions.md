@@ -98,10 +98,11 @@ movie/management/commands/update_descriptions.py
 
 ### Actividad: Ejecutar el comando:
 
-```bash
+```python
 python manage.py update_descriptions
 ```
-✅ Este comando modificará la descripción **únicamente de la primera película en la base de datos**
+
+✅ Este comando modificará la descripción únicamente de la primera película en la base de datos.
 
 ✅ Ingresa a la página de admin de la aplicación y verifica que la descripción de la primera película fue modificada. Toma una captura de pantalla.
 ---
