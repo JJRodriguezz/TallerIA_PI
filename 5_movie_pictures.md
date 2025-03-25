@@ -110,7 +110,8 @@ python manage.py generate_images
 
 ---
 
-## 📸 4. Verificación y captura de pantalla
+## Actividad: 
+✅ Ejecuta el comando.
 
 ✅ Levanta el servidor de Django:
 ```bash
@@ -130,9 +131,10 @@ python manage.py runserver
 
 ---
 
-## 📌 5. Actividad Obligatoria - Cargar imágenes desde la carpeta entregada
-### ✅ ¿Qué se hizo?
-El proceso completo de generación de imágenes se ejecutó una sola vez y se entrega la carpeta con todas las imágenes generadas.
+## 📌 5. Actividad: Cargar imágenes desde la carpeta entregada
+
+### ✅ ¿Qué hicmos por ti?
+El proceso completo de generación de imágenes se ejecutó una sola vez y se entrega la carpeta con todas las imágenes generadas en este [link](https://eafit-my.sharepoint.com/:u:/g/personal/jdmartinev_eafit_edu_co/EfJALM9CYtpFjIILa_iwzrgBcXgsRcCYxqGCdhGeSgS_Uw?e=gp5Bd0) .
 
 👉 Las imágenes se deben ubicar en la carpeta:
 ```
@@ -145,16 +147,16 @@ m_NOMBRE_PELICULA.png
 
 ---
 
-## 📌 6. ¿Qué debes hacer?
+## 📌 ¿Qué debes hacer?
 ✅ Crear un nuevo comando llamado:
 ```
 movie/management/commands/update_images_from_folder.py
 ```
 
-Este comando:
-- Recorre las películas en la base de datos
-- Asigna la imagen correspondiente de la carpeta `media/movie/images/`
-- Actualiza la base de datos con la ruta de la imagen
+Este comando debe:
+- Recorrer las películas en la base de datos
+- Asignar la imagen correspondiente de la carpeta `media/movie/images/`
+- Actualizar la base de datos con la ruta de la imagen
 
 ### 📥 Ejecuta:
 ```bash
@@ -163,7 +165,7 @@ python manage.py update_images_from_folder
 
 ---
 
-## 📌 7. Resultado esperado
+## 📌 Resultado esperado
 ✅ Al terminar, la base de datos tendrá asignada la imagen correcta para cada película.
 
 ✅ Al visualizar el sitio, verás cada película con su respectiva imagen generada por la API.
@@ -172,7 +174,7 @@ python manage.py update_images_from_folder
 
 ---
 
-## 📌 8. Nota final
+## 📌 Nota final
 No es necesario generar nuevamente las imágenes ni quitar el `break`.  
 **Solo debes cargar las imágenes entregadas y actualizar la base de datos.**
 
