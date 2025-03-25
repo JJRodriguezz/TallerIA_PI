@@ -23,7 +23,7 @@ Aprenderás a utilizar la API de OpenAI en un proyecto Django para enriquecer la
 Esta sección es para que comprendas cómo se configura y conecta el proyecto a la API de OpenAI.
 
 ### 🔑 ¿Qué necesitas?
-2.1. Crear un archivo `.env` donde almacenes tu API Key de forma segura:
+## ✅ Crear un archivo `.env` donde almacenes tu API Key de forma segura:
 ```
 openai_apikey=sk-xxxxxxxxxxxxxxxxxxxx
 ```
@@ -46,11 +46,11 @@ client = OpenAI(api_key=os.environ.get('openai_apikey'))
 
 ---
 
-## 📌 2.2. Función auxiliar para obtener la respuesta de la API
+## ✅ Función auxiliar para obtener la respuesta de la API
 Creamos una función `get_completion()` que se encarga de:
-✅ Recibir el `prompt` como entrada  
-✅ Armar la estructura de la conversación requerida por la API  
-✅ Hacer la consulta y devolver solo el texto generado
+📌 Recibir el `prompt` como entrada  
+📌 Armar la estructura de la conversación requerida por la API  
+📌 Hacer la consulta y devolver solo el texto generado
 
 ```python
 def get_completion(prompt, model="gpt-3.5-turbo"):
@@ -75,7 +75,7 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
 
 ---
 
-## 📌 2.3. Recorrer la base de datos y generar descripciones
+## ✅ Recorrer la base de datos y generar descripciones
 Este paso es costoso y, en el taller, debe ejecutarse solo para una película (por eso se usa el break dentro del ciclo que recorre las películas). Lo mostramos únicamente para que conozcas el proceso.
 
 ```python
@@ -104,7 +104,7 @@ Este fragmento recorre todas las películas de la base de datos y actualiza su d
 
     movie.save(): Guarda el cambio en la base de datos.
 
-## 📌 2.4. Ejecución 
+## ✅ Ejecución 
 
 📥 Este proceso debe realizarse como un **comando de Django dentro de la app `movie`**, ubicado en:
 
