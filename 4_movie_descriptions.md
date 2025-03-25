@@ -119,11 +119,14 @@ python manage.py update_descriptions
 
 🔎 Qué hicimos por ti:
 
-✅ Ya ejecutamos el proceso completo con la API utilizando el comando [update_and_export_movies.py](update_and_export_movies.py) para almacenar las descripciones actualizadas de todas las películas.  
+✅ Ya ejecutamos el proceso completo con la API utilizando el comando [update_and_export_movies.py](update_and_export_movies.py) para almacenar las descripciones actualizadas de todas las películas. Este comando:
+- Recorre las películas
+- Consulta la API
+- Crea un nuevo CSV
+
+⚠️ *Este comando es solo de referencia y **NO debe ejecutarse**.*
     
 ✅ Como resultado, generamos el archivo [updated_movie_descriptions.csv](updated_movie_descriptions.csv) con todas las descripciones actualizadas.
-
-
 
 📂 Estructura del CSV entregado
 El archivo contiene:
@@ -210,7 +213,7 @@ Este comando:
 ✅ Para ejecutar el comando, debes asegurate de que la consola esté ubicada en la carpeta del proyecto Django ``DjangoProjectBase``.
 
 
-## 💻 7. Ejemplo de ejecución (OBLIGATORIO):
+### 💻 Ejemplo de ejecución (OBLIGATORIO):
 ```bash
 python manage.py update_movies_from_csv
 ```
@@ -225,24 +228,13 @@ Finished updating 50 movies from CSV.
 
 ---
 
-## 📌 8. Archivo adicional (OPCIONAL - NO EJECUTAR)
-También se entrega el comando [update_and_export_movies.py](update_and_export_movies.py) con el que se generaron las descripciones de las películas. Este comando:
-- Recorre las películas
-- Consulta la API
-- Crea un nuevo CSV
-
-⚠️ *Este comando es solo de referencia y **NO debe ejecutarse**.*
-
-
----
-
-## 📌 9. Resumen Final:
+## 📌 6. Resumen Final:
 | Paso | Acción | ¿Obligatorio? |
 |-----|--------|--------------|
-| 1   | Conectar a la API (revisar) | ✅  |
-| 2   | Preparar y enviar prompts   | ❌ Opcional |
-| 3   | Generar CSV con la API      | ❌ Opcional |
-| 4   | Usar el CSV para actualizar la BD | ✅ Sí, obligatorio |
+| 1   | Conectar a la API (revisar) | ✅ |
+| 2   | Preparar y enviar prompts   | ❌ |
+| 3   | Generar CSV con la API      | ❌ |
+| 4   | Usar el CSV para actualizar la BD | ✅ |
 
 ---
 
