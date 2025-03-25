@@ -1,81 +1,91 @@
-## Creación de la API key
+# 🔑 Creación y Protección de la API Key de OpenAI
 
-Para crear la API key en openAI, debe ingresar con su cuenta a la página de openAI https://openai.com/ e ingresar al link API.
+## 📥 Paso 1: Crear tu API Key en OpenAI
 
- <div align="center">
-  <a>
-    <img src="imgs/key1.png">
-  </a>
-  </div>
+1. Ingresa a la página de OpenAI: [https://openai.com/api/](https://openai.com/api/) e inicia sesión.
+   
+   <div align="center">
+     <img src="imgs/key1.png" alt="Acceder a OpenAI">
+   </div>
 
-Ingresar a ``View API keys`` 
+2. En el panel principal, haz clic en **`Dashboard`**.
 
    <div align="center">
-  <a>
-    <img src="imgs/key2.png">
-  </a>
-  </div>
+     <img src="imgs/key2.png" alt="Dashboard">
+   </div>
 
-  En esta nueva pantalla debe hacer clic en ``Create new secret key`` 
+3. Haz clic en **`Create new secret key`**.
 
    <div align="center">
-  <a>
-    <img src="imgs/key3.png">
-  </a>
-  </div>
+     <img src="imgs/key3.png" alt="Crear nueva llave">
+   </div>
 
-  Allí debe ingresar un nombre para su API key, por ejemplo ``workshop3``
-  
-   <div align="center">
-  <a>
-    <img src="imgs/key4.png">
-  </a>
-  </div>
-
-Copie la API key y haga clic en ``Done``. Tenga en cuenta que después de cerrar esta ventana no tendrá de nuevo acceso a esta llave, por lo que debe almacenarla en algún documento.
+4. Asigna un nombre a tu API Key, por ejemplo: **`workshop3`**.
 
    <div align="center">
-  <a>
-    <img src="imgs/key5.png">
-  </a>
-  </div>
+     <img src="imgs/key4.png" alt="Nombrar la API key">
+   </div>
 
-Almacene su API key en un documento ``.env``, por ejemplo ``api_keys.env``. Esto lo puede hacer en un editor de texto como Sublime o VScode 
+5. Copia la API Key generada y haz clic en **`Done`**.
 
-La estructura del archivo .env debe ser la siguiente:
-
-````shell
-openai_api_key = "skXXXXXXXXXXX"
-````
+   ⚠️ **Importante:** Después de cerrar esta ventana, no podrás volver a ver esta llave. Guarda la clave en un lugar seguro.
 
    <div align="center">
-  <a>
-    <img src="imgs/key6b.png">
-  </a>
-  </div>
-  
-Almacene este archivo en la carpeta raíz del proyecto
+     <img src="imgs/key5.png" alt="Guardar API key">
+   </div>
 
-   <div align="center">
-  <a>
-    <img src="imgs/key7.png">
-  </a>
-  </div>
+---
 
-Verifique que el archivo ``.gitignore`` está en la raíz del proyecto (__si el archivo ya está creado, puede omitir este paso__). Si no está creado, debe ubicarse en la raíz del proyecto y escribir la instrucción ``echo. > .gitignore``
+## 📥 Paso 2: Almacenar la API Key en un archivo `.env` (Protección de la clave)
 
- <div align="center">
-  <a>
-    <img src="imgs/key7_5.PNG">
-  </a>
- </div>
+Crea un archivo llamado **`api_keys.env`** en la raíz del proyecto usando cualquier editor de texto (VSCode, Sublime, etc.):
 
-Abra con un editor de texto el archivo ``.gitignore`` que se encuentra en la raíz del proyecto. En este archivo se deben poner los nombres de los archivos que no queremos que se compartan en el repositorio en GitHub
+```
+openai_api_key="sk-XXXXXXXXXXXXXXXXXXXX"
+```
 
-   <div align="center">
-  <a>
-    <img src="imgs/key8b.png">
-  </a>
-  </div>
+<div align="center">
+  <img src="imgs/key6b.png" alt="Archivo env">
+</div>
 
-  De esta forma su API key estará segura y no tendrá que compartirla ni escribirla en ningún otro documento.
+Ubica el archivo **`api_keys.env`** en la carpeta raíz de tu proyecto:
+
+<div align="center">
+  <img src="imgs/key7.png" alt="Ubicación del archivo env">
+</div>
+
+---
+
+## 🚨 Paso 3: ¡Protege tu API Key con `.gitignore`! 🚨
+
+### 🔒 ¿Por qué es importante?
+El archivo `.gitignore` evita que archivos sensibles (como tus llaves de API) se suban al repositorio de GitHub.
+
+- Si tu API key llega a GitHub, puede ser detectada y **bloquearán tu push o podrán usar tu cuenta**.
+
+### ✅ Instrucciones:
+1. Verifica que el archivo **`.gitignore`** exista en la raíz de tu proyecto.
+   ```bash
+   echo. > .gitignore
+   ```
+
+2. Abre `.gitignore` y agrega lo siguiente al final:
+```
+api_keys.env
+*.env
+.env
+```
+
+<div align="center">
+  <img src="imgs/key8b.png" alt="Contenido del gitignore">
+</div>
+
+✅ Así te aseguras de que la API key **NO SE SUBA** nunca al repositorio.
+
+---
+
+## 📌 Resultado
+- Tu API key está guardada de forma segura.
+- Puedes cargar la clave desde el archivo `.env` en tu código.
+- Git ignorará el archivo y protegerás tus credenciales.
+

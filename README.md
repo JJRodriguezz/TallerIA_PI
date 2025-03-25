@@ -1,36 +1,60 @@
-# Workshop 3
+# 🎬 Workshop 3 - Integración de Inteligencia Artificial en el Proyecto de Películas
 
-En este workshop integraremos algunas herramientas de Inteligencia Artificial a nuestro proyecto de películas. 
+En este workshop integraremos herramientas de **Inteligencia Artificial** al proyecto de películas. 
 
-- Utilizaremos modelos de lenguaje (GPT desde la API de openAI) para crear elementos nuevos (películas) para nuestra base de datos.
-- Utilizaremos la API de creación de imágenes para generar imágenes representativas de cada película de la base de datos.
-- Crearemos un sistema de recomendación utilizando embeddings.
+### 📌 Objetivos
+- Utilizar modelos de lenguaje (GPT vía API de OpenAI) para **crear nuevas películas** en la base de datos.
+- Generar **imágenes representativas** de cada película usando una API de creación de imágenes.
+- Desarrollar un **sistema de recomendación** basado en embeddings.
 
-Las instrucciones de cada etapa del proyecto son las siguientes:
+---
+> ⚠️ **Recomendación Importante**
+>
+> Antes de realizar cada actividad, lee el documento completo de la etapa correspondiente.  
+> Esto te permitirá comprender mejor las instrucciones y evitar errores durante el desarrollo.  
+> **Ejemplo:** Lee el documento `1_Fork_and_clone.md` completo antes de realizar las actividades del punto 1.  
+> Haz lo mismo con cada etapa del taller.
+---
 
-1. [Hacer Fork del proyecto base](1_Fork_and_clone.md) 
-2. [Crear la API key en openAI](2_openAIapikey.md)
+## 📝 Instrucciones por etapas
+1. [Hacer Fork del proyecto base](1_Fork_and_clone.md)
+2. [Crear la API key en OpenAI](2a_openAIapikey.md) (No es necesario, las API keys serán entregadas por el docente)
 3. [Instalar las librerías necesarias](3_Instalaciones.md)
-4. [Descripción de las películas](4_movie_descriptions.md)
-5. [Ilustraciones de las películas](5_movie_pictures.md)
-6. [Sistema de recomendación](6_recommendation_system.md)
-7. [Alternativas open source](7_open_source.md)
+4. [Generar o actualizar las descripciones de las películas](4_movie_descriptions.md)
+5. [Crear ilustraciones de las películas](5_movie_pictures.md)
+6. [Crear embeddings de las descripciones de las películas](6_movie_similarities.md)
+7. [Implementar el sistema de recomendación](7_movie_recommendations.md)
 
-### Entregable en clase 
+---
 
-Archivo pdf con:
+## ✅ Entregable en Clase
+Entregar un archivo **PDF** que contenga:
 
-1. GitHub del proyecto
-2. Pantallazo de las películas con la imagen default
-3. Pantallazo de las películas con la imagen generada con la API 
-4. Pantallazo del resultado de la ejecución del archivo check_embeddings_db.py
-5. Pantallazo del resultado de la ejecución del archivo check_rec_sys_db.py
+1. ✅ Link del repositorio del proyecto en GitHub.
+2. ✅ Captura de pantalla de la **modificación de la descripción de la primera película** usando [update_descriptions.py](update_descriptions.py).
+3. ✅ Captura de pantalla de la **actualización de las descripciones** con el comando `update_movies_from_csv`.
+4. ✅ Captura de pantalla de la **modificación de la imagen de la primera película** con [update_images.py](update_images.py).
+5. ✅ Captura de pantalla de la **modificación de todas las imágenes de las películas** usando `update_images_from_folder`.
+6. ✅ Captura de pantalla de la ejecución de la **generación de embeddings** y comparación con **similitud de coseno** usando [movie_similarities.py](movie_similarities.py).
+7. ✅ Captura de pantalla del embedding generado para una película al azar.
 
-### Entregable para la semana del 23 de septiembre de 2024
+---
 
-Debe convertir el sistema de recomendación en una app del proyecto. Debe tener un nuevo item en la barra de navegaciónsimilar al de News. En esta app debe haber un campo para escribir el __prompt__ que generará la recomendación. Ejemplo: Película de la segunda guerra mundial. El sistema deberá mostrar la película recomendada, la imagen y la descripción. La vista debe ser similar a la búsqueda de película en la app Movies.
+## 🚀 Entregable Final - Semana del **2 de abril de 2025**
+**Objetivo:** Convertir el sistema de recomendación en una **nueva app** dentro del proyecto.
 
-Archivo pdf con:
+### 📲 Requisitos de la App
+- Incluir un nuevo ítem en la **barra de navegación** (similar a *News*).
+- La app debe tener un campo para ingresar el **prompt** de la recomendación (Ejemplo: _Película de la segunda guerra mundial_).
+- Mostrar como resultado:
+  - ✅ La película recomendada
+  - ✅ La imagen
+  - ✅ La descripción
+- La vista debe ser similar a la búsqueda de película en la app **Movies**.
 
-1. GitHub del proyecto
-2. Pantallazo de la app funcionando con una búsqueda y el resultado
+### 📄 Entrega
+Entregar un archivo **PDF** con:
+1. ✅ Link al repositorio de GitHub actualizado
+2. ✅ Captura de pantalla de la app funcionando con un ejemplo de búsqueda y su resultado
+
+---

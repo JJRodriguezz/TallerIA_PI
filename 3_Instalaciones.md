@@ -1,37 +1,58 @@
-## Instalación de paquetes necesarios
+# 📦 Instalación de Paquetes Necesarios
 
-Dado que este workshop es la continuación de los dos anteriores, se asumirá que ya deben tener instalado ``Python``, ``Django`` y ``Pillow``.
+Este workshop es la continuación de los dos anteriores, por lo que se asume que ya tienes instalado:
 
-Adicional a estas librerías, vamos a instalar lo siguiente:
+✅ `Python`  
+✅ `Django`  
+✅ `Pillow`
 
-- ``openai``, ``google-generativeai``, : Librerías para acceder a modelos de inteligencia artificial
-- ``huggingface_hub``: Librería alternativa para consumir APIs de modelos de IA open source
--  ``python-dotenv``: Manejo de api_keys de forma segura
--  ``numpy``: Operaciones matemáticas y de álgebra lineal
--  ``requests``: Consultas a algunas API de openAI
+---
 
-Abra el archivo ``requirements.txt``. Notará que este archivo tiene la siguiente estructura:
+## 🚀 Nuevas librerías a instalar
 
- <div align="center">
-  <a>
-    <img src="imgs/install1.png">
-  </a>
-  </div>
+En este taller agregaremos las siguientes dependencias:
 
-En este archivo se deben listar todas las librerías necesarias para el funcionamiento del proyecto. Si se necesita una versión específica de alguna librería se debe especificar de la siguiente forma:
+- `openai`, `google-generativeai`: Librerías oficiales para acceder a modelos de IA
+- `huggingface_hub`: Cliente para consumir APIs de modelos de IA de código abierto
+- `python-dotenv`: Manejo seguro de las API Keys con archivos `.env`
+- `numpy`: Operaciones matemáticas y de álgebra lineal
+- `requests`: Consultas directas a APIs como las de OpenAI
 
-``numpy==1.20.1``
+---
 
-Por ahora, dado que no requerimos versiones específicas, se puede dejar el archivo como está.
+## 📄 Revisa y edita el archivo `requirements.txt`
 
-Después, desde la consola ubicada en la carpeta donde se encuentra el archivo ``requirements.txt`` escriba lo siguiente:
+El archivo `requirements.txt` lista todas las librerías necesarias para el proyecto.  
+Para especificar una versión exacta de alguna librería, usa el formato:
 
-``pip install -r requirements.txt``
+```text
+numpy==1.20.1
+```
 
- <div align="center">
-  <a>
-    <img src="imgs/install2.png">
-  </a>
-  </div>
+Por ahora, como no requerimos versiones específicas, el archivo puede quedar así:
 
-Después de unos segundos la instalación debe quedar completa.
+<div align="center">
+  <img src="imgs/install1.png" alt="Estructura del requirements.txt">
+</div>
+
+---
+
+## 💻 Instalación de las dependencias
+
+Desde la terminal, ubícate en la carpeta donde está el archivo `requirements.txt` y ejecuta:
+
+```bash
+pip install -r requirements.txt
+```
+
+<div align="center">
+  <img src="imgs/install2.png" alt="Instalar requirements">
+</div>
+
+✅ Esto instalará todas las librerías necesarias.
+
+---
+
+## 📌 Resultado
+Tendrás el entorno listo con todas las dependencias para usar las APIs de OpenAI, Google y Hugging Face de forma segura.
+
