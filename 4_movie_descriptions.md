@@ -116,19 +116,22 @@ python manage.py update_descriptions
  
 
 ## 🚨 5. Actividad
-✅ Ya ejecutamos el proceso completo con la API utilizando el comando [update_and_export_movies.py](update_and_export_movies.py) para almacenar las descripciones actualizadas de todas las películas.  
 
-✅ Como resultado, generamos el archivo [updated_movie_descriptions.csv](updated_movie_descriptions.csv) con todas las descripciones actualizadas.
+🔎 Qué hicimos por ti:
+
+    ✅ Ya ejecutamos el proceso completo con la API utilizando el comando [update_and_export_movies.py](update_and_export_movies.py) para almacenar las descripciones actualizadas de todas las películas.  
+    
+    ✅ Como resultado, generamos el archivo [updated_movie_descriptions.csv](updated_movie_descriptions.csv) con todas las descripciones actualizadas.
 
 
 
-### 📂 Estructura del CSV entregado
-El archivo contiene:
+    📂 Estructura del CSV entregado
+    El archivo contiene:
 
-| Title           | Updated Description                 |
-|-----------------|-------------------------------------|
-| Movie Title 1   | Descripción generada por OpenAI ... |
-| Movie Title 2   | Descripción generada por OpenAI ... |
+    |    Title           | Updated Description                 |
+    |-----------------|-------------------------------------|
+    | Movie Title 1   | Descripción generada por OpenAI ... |
+    | Movie Title 2   | Descripción generada por OpenAI ... |
 
 ---
 
