@@ -1,7 +1,13 @@
-# 🎯 Recomendador de Películas usando Embeddings y OpenAI
+# 🎯 Similitud de Películas usando Embeddings y OpenAI
 
 ## ✅ Objetivo
 Crear un sistema de recomendación de películas utilizando **embeddings generados por OpenAI** y calcular la similitud entre las películas.
+
+---
+
+✅ Conectarte a la API de OpenAI  
+✅ Generar un embedding para representar la descripción de cada película  
+✅ Comparar embeddings utilizando la similitud del coseno
 
 ---
 
