@@ -139,6 +139,6 @@ self.stdout.write(f"📝 Similitud prompt vs '{movie2.title}': {sim_prompt_movie
 
 ## ✅ Actividad
 
-La actividad en este punto es **cambiar las películas y el prompt** en el código y verificar los resultados de la similitud del coseno para diferentes combinaciones. El código del comando lo pueden encontrar en el archivo [movie_similarities.py](movie_similarities.py).
+La actividad en este punto es **cambiar las películas y el prompt** en el código y verificar los resultados de la similitud del coseno para diferentes combinaciones. El código del comando lo pueden encontrar en el archivo [movie_similarities.py](aux_files/movie_similarities.py).
 
 ✅ Entregable: Captura de pantalla del comando donde se puedan observar las películas seleccionadas y el prompt de búsqueda generado, y captura de pantalla donde se pueda observar en consola los resultados de similitud del coseno generados.
