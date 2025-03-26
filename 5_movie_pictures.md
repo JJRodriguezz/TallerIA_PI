@@ -135,7 +135,7 @@ python manage.py runserver
 ## 📌 5. Actividad: Cargar imágenes desde la carpeta entregada
 
 ### ✅ ¿Qué hicmos por ti?
-El proceso completo de generación de imágenes se ejecutó una sola vez y se entrega la carpeta con todas las imágenes generadas en este [link](https://eafit-my.sharepoint.com/:u:/g/personal/jdmartinev_eafit_edu_co/EfJALM9CYtpFjIILa_iwzrgBcXgsRcCYxqGCdhGeSgS_Uw?e=gp5Bd0) .
+El proceso completo de generación de imágenes se ejecutó una sola vez y se entrega la carpeta con todas las imágenes generadas en este [link](https://eafit-my.sharepoint.com/:u:/g/personal/jdmartinev_eafit_edu_co/EZWTYwpkbHhHjIEZfkgc_mwBuknZR5cizHhIhRuDo9qrnQ?e=u2ynMP) .
 
 👉 Las imágenes se deben ubicar en la carpeta:
 ```
