@@ -112,7 +112,7 @@ Este fragmento recorre todas las películas de la base de datos y actualiza su d
 movie/management/commands/update_descriptions.py
 ```
 
-🔎El código lo pueden encontrar en el archivo [update_descriptions.py](update_descriptions.py)
+🔎El código lo pueden encontrar en el archivo [update_descriptions.py](aux_files/update_descriptions.py)
 
 ### Actividad: Ejecutar el comando:
 
@@ -133,14 +133,14 @@ python manage.py update_descriptions
 
 🔎 Qué hicimos por ti:
 
-✅ Ya ejecutamos el proceso completo con la API utilizando el comando [update_and_export_movies.py](update_and_export_movies.py) para almacenar las descripciones actualizadas de todas las películas. Este comando:
+✅ Ya ejecutamos el proceso completo con la API utilizando el comando [update_and_export_movies.py](aux_files/update_and_export_movies.py) para almacenar las descripciones actualizadas de todas las películas. Este comando:
 - Recorre las películas
 - Consulta la API
 - Crea un nuevo CSV
 
 ⚠️ *Este comando es solo de referencia y **NO debe ejecutarse**.*
     
-✅ Como resultado, generamos el archivo [updated_movie_descriptions.csv](updated_movie_descriptions.csv) con todas las descripciones actualizadas.
+✅ Como resultado, generamos el archivo [updated_movie_descriptions.csv](aux_files/updated_movie_descriptions.csv) con todas las descripciones actualizadas.
 
 📂 Estructura del CSV entregado
 El archivo contiene:
@@ -154,7 +154,7 @@ El archivo contiene:
 
 ### 📌¿Qué debes hacer tú? 
 
-✅ **Actividad:** Crear un comando de Django `update_movies_from_csv` que tome las descripciones actualizadas con IA del archivo [updated_movie_descriptions.csv](updated_movie_descriptions.csv) y las actualice en la base de datos del proyecto.
+✅ **Actividad:** Crear un comando de Django `update_movies_from_csv` que tome las descripciones actualizadas con IA del archivo [updated_movie_descriptions.csv](aux_files/updated_movie_descriptions.csv) y las actualice en la base de datos del proyecto.
 
 Ubíca este comando en:
 ```
@@ -210,7 +210,7 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS(f"Finished updating {updated_count} movies from CSV."))
 
 ```
-Debes completar los espacios en blanco y ubicar el archivo [updated_movie_descriptions.csv](updated_movie_descriptions.csv) en la raíz del proyecto django.
+Debes completar los espacios en blanco y ubicar el archivo [updated_movie_descriptions.csv](aux_files/updated_movie_descriptions.csv) en la raíz del proyecto django.
 
 ### ✅ Ejecuta el comando:
 ```bash
