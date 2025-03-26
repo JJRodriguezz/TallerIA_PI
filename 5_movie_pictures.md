@@ -104,7 +104,7 @@ for movie in movies:
 
 ## 📌 3. Ejecuta el comando
 ```bash
-python manage.py generate_images
+python manage.py update_images
 ```
 
 ✅ Verás mensajes indicando qué película se procesó y si la imagen fue descargada y almacenada.
