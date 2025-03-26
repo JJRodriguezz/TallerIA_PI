@@ -15,6 +15,15 @@ En este workshop integraremos herramientas de **Inteligencia Artificial** al pro
 > **Ejemplo:** Lee el documento `1_Fork_and_clone.md` completo antes de realizar las actividades del punto 1.  
 > Haz lo mismo con cada etapa del taller.
 ---
+---
+⚠️ Recomendación Importante
+
+Asegúrate de incluir el archivo openAI.env en el archivo .gitignore de tu proyecto.
+Esto evitará que por error subas tu llave privada de OpenAI a GitHub y la expongas públicamente.
+Ejemplo: Agrega la línea openAI.env dentro de tu .gitignore antes de hacer git add.
+Verifica siempre que los archivos sensibles no estén en el área de staging.
+---
+
 
 ## 📝 Instrucciones por etapas
 1. [Hacer Fork del proyecto base](1_Fork_and_clone.md)
