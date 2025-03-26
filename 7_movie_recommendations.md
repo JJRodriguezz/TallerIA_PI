@@ -53,7 +53,7 @@ class Movie(models.Model):
         return self.title
 ```
 
-✅ Recuerda que cada que modifiques el modelo debes ejecutar:
+✅ Recuerda que cada que modifiques el modelo debes hacer las migraciones.
 
 ---
 
