@@ -22,6 +22,7 @@ Asegúrate de incluir el archivo openAI.env en el archivo .gitignore de tu proye
 Esto evitará que por error subas tu llave privada de OpenAI a GitHub y la expongas públicamente.
 Ejemplo: Agrega la línea openAI.env dentro de tu .gitignore antes de hacer git add.
 Verifica siempre que los archivos sensibles no estén en el área de staging.
+
 ---
 
 
