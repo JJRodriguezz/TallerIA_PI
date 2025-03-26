@@ -78,7 +78,7 @@ De esta forma, podemos almacenar el vector como un campo **BinaryField** y recup
 
 ## 🔄 Generar y almacenar embeddings desde la API de OpenAI
 
-Hemos creado el comando [movie_embeddings.py](movie_embeddings.py) que:
+Hemos creado el comando [movie_embeddings.py](aux_files/movie_embeddings.py) que:
 
 ✅ Recorre cada película en la base de datos  
 ✅ Genera el embedding usando la descripción de la película  
