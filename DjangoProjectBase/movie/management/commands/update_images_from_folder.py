@@ -23,7 +23,7 @@ class Command(BaseCommand):
         images_folder = os.path.join(settings.MEDIA_ROOT, 'movie', 'images')
         
         if not os.path.exists(images_folder):
-            self.stderr.write(f"Image folder '{images_folder}' not found.")
+            self.stderr.write(f"Image folder '{images_folder}' not w
             return
 
         updated_count = 0
